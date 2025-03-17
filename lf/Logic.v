@@ -2220,13 +2220,5 @@ Proof.
     apply NHQ in HP. destruct HP.
 Qed.
 
-(* Theorem double_negation_elimination_to_de_morgan_not_and_not :
-  double_negation_elimination -> de_morgan_not_and_not.
-Proof.    
-  intros double_negation_elimination P Q.
-  simpl.
-   *)
-
-
 
 (* 2025-01-13 16:00 *)
