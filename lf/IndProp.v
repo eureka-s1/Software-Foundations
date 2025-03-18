@@ -362,9 +362,21 @@ cms 16 8           cms 8 4           cms 4 2           cms 2 1
     How would you modify the [clos_refl_trans] definition above so as
     to define the reflexive, symmetric, and transitive closure? *)
 
-(* FILL IN HERE
+Inductive clos_refl_sym_trans {X: Type} (R: X->X->Prop) : X->X->Prop :=
+| rts_step (x y : X) :
+    R x y ->
+    clos_refl_sym_trans R x y
+| rts_refl (x : X) :
+    clos_refl_sym_trans R x x
+| rts_sym (x y : X) :
+    clos_refl_sym_trans R x y ->
+    clos_refl_sym_trans R y x
+| rts_trans (x y z : X) :
+    clos_refl_sym_trans R x y ->
+    clos_refl_sym_trans R y z ->
+    clos_refl_sym_trans R x z.
 
-    [] *)
+(* [] *)
 
 (* ================================================================= *)
 (** ** Example: Permutations *)
@@ -417,9 +429,13 @@ Inductive Perm3 {X : Type} : list X -> list X -> Prop :=
     According to this definition, is [[1;2;3]] a permutation of
     itself? *)
 
-(* FILL IN HERE
-
-    [] *)
+Theorem perm_self : Perm3 [1;2;3] [1;2;3].
+Proof.
+  apply perm3_trans with (l2 := [2;1;3]).
+  - apply perm3_swap12.
+  - apply perm3_swap12.
+Qed. 
+(* [] *)
 
 (* ================================================================= *)
 (** ** Example: Evenness (yet again) *)
@@ -566,7 +582,10 @@ Qed.
 Theorem ev_double : forall n,
   ev (double n).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n. induction n as [|n' IHn']. 
+  - simpl. apply ev_0.
+  - simpl. apply ev_SS. apply IHn'.
+Qed.
 (** [] *)
 
 (* ================================================================= *)
@@ -605,13 +624,20 @@ Qed.
 
 (** **** Exercise: 1 star, standard (Perm3) *)
 Lemma Perm3_ex1 : Perm3 [1;2;3] [2;3;1].
-Proof.
-  (* FILL IN HERE *) Admitted.
+Proof. 
+  apply perm3_trans with (l2:=[2;1;3]). 
+  - apply perm3_swap12. 
+  - apply perm3_swap23. 
+Qed.
 
 Lemma Perm3_refl : forall (X : Type) (a b c : X),
   Perm3 [a;b;c] [a;b;c].
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros X a b c.
+  apply perm3_trans with (l2:=[b;a;c]).
+  - apply perm3_swap12.
+  - apply perm3_swap12.
+Qed.
 (** [] *)
 
 (* ################################################################# *)
@@ -679,7 +705,10 @@ Theorem le_inversion : forall (n m : nat),
   le n m ->
   (n = m) \/ (exists m', m = S m' /\ le n m').
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n m H. destruct H as [ | m' H'].
+  - left. reflexivity.
+  - right. exists m'. split. reflexivity. apply H'.
+Qed.
 (** [] *)
 
 (** We can use the inversion lemma that we proved above to help
@@ -740,7 +769,12 @@ Proof. intros H. inversion H. Qed.
 Theorem SSSSev__even : forall n,
   ev (S (S (S (S n)))) -> ev n.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n E. 
+  inversion E as [| n' E' EQ'].
+  inversion E' as [| n'' E'' EQ''].
+  apply E''.
+Qed.
+
 (** [] *)
 
 (** **** Exercise: 1 star, standard (ev5_nonsense)
@@ -749,8 +783,7 @@ Proof.
 
 Theorem ev5_nonsense :
   ev 5 -> 2 + 2 = 9.
-Proof.
-  (* FILL IN HERE *) Admitted.
+Proof. intros H. inversion H. inversion H1. inversion H3. Qed.
 (** [] *)
 
 (** The [inversion] tactic does quite a bit of work. For
@@ -911,7 +944,17 @@ Qed.
 (** **** Exercise: 2 stars, standard (ev_sum) *)
 Theorem ev_sum : forall n m, ev n -> ev m -> ev (n + m).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n m Hn.
+  generalize dependent m.
+  induction Hn as [|n' Hn' IHn'].
+  - intros m Hm.
+    apply Hm.
+  - intros m Hm.
+    apply IHn' in Hm.
+    simpl. apply ev_SS.
+    apply Hm.
+Qed.
+
 (** [] *)
 
 (** **** Exercise: 3 stars, advanced, especially useful (ev_ev__ev) *)
@@ -920,8 +963,17 @@ Theorem ev_ev__ev : forall n m,
   (* Hint: There are two pieces of evidence you could attempt to induct upon
       here. If one doesn't work, try the other. *)
 Proof.
-  (* FILL IN HERE *) Admitted.
-(** [] *)
+  intros n m Hnm Hn.
+  generalize dependent m.
+  induction Hn as [|n' Hn' IHn'].
+  - intros m Hm. apply Hm.
+  - simpl. 
+    intros m Hnm'.
+    inversion Hnm'.
+    apply IHn'.
+    apply H0.
+Qed.    
+  (** [] *)
 
 (** **** Exercise: 3 stars, standard, optional (ev_plus_plus)
 
@@ -929,10 +981,30 @@ Proof.
     But, you will need a clever assertion and some tedious rewriting.
     Hint: Is [(n+m) + (n+p)] even? *)
 
+Theorem ev_n_n : forall n, ev (n + n).
+Proof.
+  intros n.
+  induction n as [|n' IHn'].
+  - simpl. apply ev_0.
+  - simpl. rewrite add_comm. simpl. apply ev_SS. apply IHn'.
+Qed.
+
 Theorem ev_plus_plus : forall n m p,
   ev (n+m) -> ev (n+p) -> ev (m+p).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros n m p Hnm Hnp.
+  assert (H : ev ((n+m) + (n+p))).
+  { apply (ev_sum (n+m) (n+p)). apply Hnm. apply Hnp. }
+  apply ev_ev__ev with (n:=n + n).
+  - rewrite add_assoc.
+    rewrite add_assoc in H.
+    assert (goal : n+n+m = n+m+n).
+    { rewrite <-add_assoc. apply add_comm. }
+    rewrite goal.
+    apply H.
+  - apply ev_n_n.
+Qed. 
+  
 (** [] *)
 
 (** **** Exercise: 4 stars, advanced, optional (ev'_ev)
@@ -954,7 +1026,19 @@ Inductive ev' : nat -> Prop :=
 
 Theorem ev'_ev : forall n, ev' n <-> ev n.
 Proof.
- (* FILL IN HERE *) Admitted.
+  split.
+  - (* -> *) intros H.
+    induction H as [| |n' m' Hn IHn Hm IHm].
+    + apply ev_0.
+    + apply ev_SS. apply ev_0.
+    + apply ev_sum. apply IHn. apply IHm.
+  - (* <- *) intros H.
+    induction H as [|n' Hn IHn].
+    + apply ev'_0.
+    + apply ev'_sum with (n:=2) (m:=n').
+      apply (ev'_2). apply IHn.
+Qed.
+
 (** [] *)
 
 (** We can do similar inductive proofs on the [Perm3] relation,
@@ -988,14 +1072,34 @@ Qed.
 Lemma Perm3_In : forall (X : Type) (x : X) (l1 l2 : list X),
     Perm3 l1 l2 -> In x l1 -> In x l2.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros X x l1 l2 E.
+  induction E as [a b c | a b c | l1 l2 l3 E12 IH12 E23 IH23].
+  - simpl. intros [H | [H | [H | H]]].
+    + right. left. apply H.
+    + left. apply H.
+    + right. right. left. apply H.
+    + destruct H. 
+  - simpl. intros [H | [H | [H | H]]].
+    + left. apply H.
+    + right. right. left. apply H.  
+    + right. left. apply H.
+    + destruct H.
+  - intros H1. apply IH23. apply IH12. apply H1.
+Qed.
 (** [] *)
 
 (** **** Exercise: 1 star, standard, optional (Perm3_NotIn) *)
 Lemma Perm3_NotIn : forall (X : Type) (x : X) (l1 l2 : list X),
     Perm3 l1 l2 -> ~In x l1 -> ~In x l2.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros X x l1 l2 E.
+  unfold not.
+  intros H1 H2.
+  apply H1. 
+  apply Perm3_In with (l1:=l2) (l2:=l1).
+  apply Perm3_symm. apply E.
+  apply H2.
+Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard, optional (NotPerm3)
@@ -1003,8 +1107,17 @@ Proof.
     Proving that something is NOT a permutation is quite tricky. Some
     of the lemmas above, like [Perm3_In] can be useful for this. *)
 Example Perm3_example2 : ~ Perm3 [1;2;3] [1;2;4].
-Proof.
-  (* FILL IN HERE *) Admitted.
+Proof. 
+  intros H.
+  apply Perm3_In with (x:=3) (l1:=[1;2;3]) (l2:=[1;2;4]) in H.
+  unfold In in *.
+  simpl. destruct H as [H | [H | [H | H]]].
+  - discriminate.
+  - discriminate.
+  - discriminate.
+  - destruct H.
+  - simpl. right. right. left. reflexivity.
+Qed.
 (** [] *)
 
 
