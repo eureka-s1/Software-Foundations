@@ -1,4 +1,4 @@
-DIGEST c4d923f73948eb441e7660f00cc1939f
+DIGEST 3c1518b35be3f65a349a0b932d41de03
 FLF.IndPrinciples
 R433:444 LF.ProofObjects <> <> lib
 R630:633 Coq.Init.Logic <> ::type_scope:x_'->'_x not
@@ -37,659 +37,782 @@ R2745:2747 LF.Basics <> ::nat_scope:x_'+'_x not
 R2744:2744 LF.IndPrinciples <> n:5 var
 R2752:2752 Coq.Init.Datatypes <> S constr
 R2754:2754 LF.IndPrinciples <> n:5 var
-ind 3817:3820 <> time
-constr 3836:3838 <> day
-constr 3844:3848 <> night
-scheme 3817:3820 <> time_rect
-scheme 3817:3820 <> time_ind
-scheme 3817:3820 <> time_rec
-scheme 3817:3820 <> time_sind
-R3886:3889 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3882:3885 LF.IndPrinciples <> time ind
-binder 3878:3878 <> P:8
-R3905:3912 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3900:3900 LF.IndPrinciples <> P:8 var
-R3902:3904 LF.IndPrinciples <> day constr
-R3920:3927 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R3913:3913 LF.IndPrinciples <> P:8 var
-R3915:3919 LF.IndPrinciples <> night constr
-R3939:3942 LF.IndPrinciples <> time ind
-binder 3935:3935 <> t:9
-R3945:3945 LF.IndPrinciples <> P:8 var
-R3947:3947 LF.IndPrinciples <> t:9 var
-R3858:3865 LF.IndPrinciples <> time_ind scheme
-ind 4217:4219 <> rgb
-constr 4235:4237 <> red
-constr 4243:4247 <> green
-constr 4253:4256 <> blue
-scheme 4217:4219 <> rgb_rect
-scheme 4217:4219 <> rgb_ind
-scheme 4217:4219 <> rgb_rec
-scheme 4217:4219 <> rgb_sind
-R4265:4271 LF.IndPrinciples <> rgb_ind scheme
-ind 4393:4399 <> natlist
-constr 4415:4418 <> nnil
-constr 4424:4428 <> ncons
-R4435:4437 Coq.Init.Datatypes <> nat ind
-binder 4431:4431 <> n:14
-R4445:4451 LF.IndPrinciples <> natlist:12 ind
-binder 4441:4441 <> l:15
-scheme 4393:4399 <> natlist_rect
-scheme 4393:4399 <> natlist_ind
-scheme 4393:4399 <> natlist_rec
-scheme 4393:4399 <> natlist_sind
-R4496:4499 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4489:4495 LF.IndPrinciples <> natlist ind
-binder 4485:4485 <> P:16
-R4516:4524 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4510:4510 LF.IndPrinciples <> P:16 var
-R4512:4515 LF.IndPrinciples <> nnil constr
-R4525:4525 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4586:4594 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4538:4540 Coq.Init.Datatypes <> nat ind
-binder 4534:4534 <> n:17
-R4548:4554 LF.IndPrinciples <> natlist ind
-binder 4544:4544 <> l:18
-R4569:4572 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R4566:4566 LF.IndPrinciples <> P:16 var
-R4568:4568 LF.IndPrinciples <> l:18 var
-R4573:4573 LF.IndPrinciples <> P:16 var
-R4576:4580 LF.IndPrinciples <> ncons constr
-R4582:4582 LF.IndPrinciples <> n:17 var
-R4584:4584 LF.IndPrinciples <> l:18 var
-R4606:4612 LF.IndPrinciples <> natlist ind
-binder 4602:4602 <> l:19
-R4615:4615 LF.IndPrinciples <> P:16 var
-R4617:4617 LF.IndPrinciples <> l:19 var
-R4462:4472 LF.IndPrinciples <> natlist_ind scheme
-ind 5360:5367 <> natlist'
-constr 5383:5387 <> nnil'
-constr 5393:5397 <> nsnoc
-R5404:5411 LF.IndPrinciples <> natlist':20 ind
-binder 5400:5400 <> l:22
-R5419:5421 Coq.Init.Datatypes <> nat ind
-binder 5415:5415 <> n:23
-scheme 5360:5367 <> natlist'_rect
-scheme 5360:5367 <> natlist'_ind
-scheme 5360:5367 <> natlist'_rec
-scheme 5360:5367 <> natlist'_sind
-R5579:5582 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5571:5578 LF.IndPrinciples <> natlist' ind
-binder 5567:5567 <> P:24
-R5600:5607 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5593:5593 LF.IndPrinciples <> P:24 var
-R5595:5599 LF.IndPrinciples <> nnil' constr
-R5608:5608 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5666:5674 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5620:5627 LF.IndPrinciples <> natlist' ind
-binder 5616:5616 <> l:25
-R5633:5636 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R5630:5630 LF.IndPrinciples <> P:24 var
-R5632:5632 LF.IndPrinciples <> l:25 var
-R5648:5650 Coq.Init.Datatypes <> nat ind
-binder 5644:5644 <> n:26
-R5653:5653 LF.IndPrinciples <> P:24 var
-R5656:5660 LF.IndPrinciples <> nsnoc constr
-R5662:5662 LF.IndPrinciples <> l:25 var
-R5664:5664 LF.IndPrinciples <> n:26 var
-R5686:5693 LF.IndPrinciples <> natlist' ind
-binder 5682:5682 <> n:27
-R5696:5696 LF.IndPrinciples <> P:24 var
-R5698:5698 LF.IndPrinciples <> n:27 var
-R5543:5554 LF.IndPrinciples <> natlist'_ind scheme
-ind 5856:5863 <> booltree
-constr 5879:5886 <> bt_empty
-constr 5892:5898 <> bt_leaf
-constr 5915:5923 <> bt_branch
-R5905:5908 LF.Basics <> bool ind
-binder 5901:5901 <> b:30
-R5930:5933 LF.Basics <> bool ind
-binder 5926:5926 <> b:31
-R5945:5952 LF.IndPrinciples <> booltree:28 ind
-binder 5937:5938 <> t1:32
-binder 5940:5941 <> t2:33
-scheme 5856:5863 <> booltree_rect
-scheme 5856:5863 <> booltree_ind
-scheme 5856:5863 <> booltree_rec
-scheme 5856:5863 <> booltree_sind
-def 6346:6367 <> booltree_property_type
-R6387:6390 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6379:6386 LF.IndPrinciples <> booltree ind
-def 6409:6417 <> base_case
-R6424:6445 LF.IndPrinciples <> booltree_property_type def
-binder 6420:6420 <> P:34
-def 6534:6542 <> leaf_case
-R6549:6570 LF.IndPrinciples <> booltree_property_type def
-binder 6545:6545 <> P:35
-def 6659:6669 <> branch_case
-R6676:6697 LF.IndPrinciples <> booltree_property_type def
-binder 6672:6672 <> P:36
-def 6786:6802 <> booltree_ind_type
-R6821:6842 LF.IndPrinciples <> booltree_property_type def
-binder 6817:6817 <> P:37
-R6861:6868 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6850:6858 LF.IndPrinciples <> base_case prfax
-R6860:6860 LF.IndPrinciples <> P:37 var
-R6880:6887 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6869:6877 LF.IndPrinciples <> leaf_case prfax
-R6879:6879 LF.IndPrinciples <> P:37 var
-R6901:6908 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R6888:6898 LF.IndPrinciples <> branch_case prfax
-R6900:6900 LF.IndPrinciples <> P:37 var
-R6921:6928 LF.IndPrinciples <> booltree ind
-binder 6917:6917 <> b:38
-R6932:6932 LF.IndPrinciples <> P:37 var
-R6934:6934 LF.IndPrinciples <> b:38 var
-prf 7271:7295 <> booltree_ind_type_correct
-R7299:7315 LF.IndPrinciples <> booltree_ind_type def
-ind 7743:7745 <> Toy
-scheme 7743:7745 <> Toy_rect
-scheme 7743:7745 <> Toy_ind
-scheme 7743:7745 <> Toy_rec
-scheme 7743:7745 <> Toy_sind
-prf 8149:8159 <> Toy_correct
-R8163:8169 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
-R8173:8176 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
-binder 8170:8170 <> f:41
-binder 8172:8172 <> g:42
-R8191:8194 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8188:8190 LF.IndPrinciples <> Toy ind
-binder 8184:8184 <> P:43
-R8205:8205 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8230:8238 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8217:8220 LF.Basics <> bool ind
-binder 8213:8213 <> b:44
-R8223:8223 LF.IndPrinciples <> P:43 var
-R8226:8226 LF.IndPrinciples <> f:41 var
-R8228:8228 LF.IndPrinciples <> b:44 var
-R8239:8239 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8284:8292 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8252:8254 Coq.Init.Datatypes <> nat ind
-binder 8248:8248 <> n:45
-R8262:8264 LF.IndPrinciples <> Toy ind
-binder 8258:8258 <> t:46
-R8271:8274 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R8268:8268 LF.IndPrinciples <> P:43 var
-R8270:8270 LF.IndPrinciples <> t:46 var
-R8275:8275 LF.IndPrinciples <> P:43 var
-R8278:8278 LF.IndPrinciples <> g:42 var
-R8280:8280 LF.IndPrinciples <> n:45 var
-R8282:8282 LF.IndPrinciples <> t:46 var
-R8304:8306 LF.IndPrinciples <> Toy ind
-binder 8300:8300 <> t:47
-R8309:8309 LF.IndPrinciples <> P:43 var
-R8311:8311 LF.IndPrinciples <> t:47 var
-ind 9708:9711 <> tree
-constr 9736:9739 <> leaf
-constr 9753:9756 <> node
-binder 9714:9714 <> X:48
-R9746:9746 LF.IndPrinciples <> X:48 var
-binder 9742:9742 <> x:51
-R9767:9770 LF.IndPrinciples <> tree:49 ind
-R9772:9772 LF.IndPrinciples <> X:48 var
-binder 9759:9760 <> t1:52
-binder 9762:9763 <> t2:53
-scheme 9708:9711 <> tree_rect
-scheme 9708:9711 <> tree_ind
-scheme 9708:9711 <> tree_rec
-scheme 9708:9711 <> tree_sind
-R9782:9789 LF.IndPrinciples <> tree_ind scheme
-ind 10842:10845 <> foo'
-constr 10870:10871 <> C1
-constr 10903:10904 <> C2
-binder 10848:10848 <> X:54
-R10878:10881 LF.Poly <> list ind
-R10883:10883 LF.IndPrinciples <> X:54 var
-binder 10874:10874 <> l:57
-R10891:10894 LF.IndPrinciples <> foo':55 ind
-R10896:10896 LF.IndPrinciples <> X:54 var
-binder 10887:10887 <> f:58
-scheme 10842:10845 <> foo'_rect
-scheme 10842:10845 <> foo'_ind
-scheme 10842:10845 <> foo'_rec
-scheme 10842:10845 <> foo'_sind
-def 12260:12264 <> P_m0r
-R12269:12271 Coq.Init.Datatypes <> nat ind
-binder 12267:12267 <> n:59
-R12291:12293 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R12287:12289 LF.Basics <> ::nat_scope:x_'*'_x not
-R12286:12286 LF.IndPrinciples <> n:59 var
-def 12338:12343 <> P_m0r'
-R12350:12353 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R12347:12349 Coq.Init.Datatypes <> nat ind
-binder 12368:12368 <> n:60
-R12378:12380 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R12374:12376 LF.Basics <> ::nat_scope:x_'*'_x not
-R12373:12373 LF.IndPrinciples <> n:60 var
-prf 12461:12469 <> mul_0_r''
-R12482:12484 Coq.Init.Datatypes <> nat ind
-binder 12480:12480 <> n:61
-R12489:12493 LF.IndPrinciples <> P_m0r def
-R12495:12495 LF.IndPrinciples <> n:61 var
-R12513:12519 Coq.Init.Datatypes <> nat_ind scheme
-R12513:12519 Coq.Init.Datatypes <> nat_ind scheme
-R12645:12649 LF.IndPrinciples <> P_m0r def
-R12666:12670 LF.IndPrinciples <> P_m0r def
-prf 14576:14585 <> add_assoc'
-R14604:14606 Coq.Init.Datatypes <> nat ind
-binder 14596:14596 <> n:62
-binder 14598:14598 <> m:63
-binder 14600:14600 <> p:64
-R14622:14624 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R14612:14615 LF.Basics <> ::nat_scope:x_'+'_x not
-R14621:14621 LF.Basics <> ::nat_scope:x_'+'_x not
-R14611:14611 LF.IndPrinciples <> n:62 var
-R14617:14619 LF.Basics <> ::nat_scope:x_'+'_x not
-R14616:14616 LF.IndPrinciples <> m:63 var
-R14620:14620 LF.IndPrinciples <> p:64 var
-R14625:14625 LF.Basics <> ::nat_scope:x_'+'_x not
-R14631:14634 LF.Basics <> ::nat_scope:x_'+'_x not
-R14627:14629 LF.Basics <> ::nat_scope:x_'+'_x not
-R14626:14626 LF.IndPrinciples <> n:62 var
-R14630:14630 LF.IndPrinciples <> m:63 var
-R14635:14635 LF.IndPrinciples <> p:64 var
-prf 15231:15239 <> add_comm'
-R15256:15258 Coq.Init.Datatypes <> nat ind
-binder 15250:15250 <> n:65
-binder 15252:15252 <> m:66
-R15268:15270 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R15264:15266 LF.Basics <> ::nat_scope:x_'+'_x not
-R15263:15263 LF.IndPrinciples <> n:65 var
-R15267:15267 LF.IndPrinciples <> m:66 var
-R15272:15274 LF.Basics <> ::nat_scope:x_'+'_x not
-R15271:15271 LF.IndPrinciples <> m:66 var
-R15275:15275 LF.IndPrinciples <> n:65 var
-R15347:15353 LF.Induction <> add_0_r thm
-R15347:15353 LF.Induction <> add_0_r thm
-R15347:15353 LF.Induction <> add_0_r thm
-R15437:15445 LF.Induction <> plus_n_Sm thm
-R15437:15445 LF.Induction <> plus_n_Sm thm
-R15437:15445 LF.Induction <> plus_n_Sm thm
-prf 15860:15869 <> add_comm''
-R15886:15888 Coq.Init.Datatypes <> nat ind
-binder 15880:15880 <> n:67
-binder 15882:15882 <> m:68
-R15898:15900 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R15894:15896 LF.Basics <> ::nat_scope:x_'+'_x not
-R15893:15893 LF.IndPrinciples <> n:67 var
-R15897:15897 LF.IndPrinciples <> m:68 var
-R15902:15904 LF.Basics <> ::nat_scope:x_'+'_x not
-R15901:15901 LF.IndPrinciples <> m:68 var
-R15905:15905 LF.IndPrinciples <> n:67 var
-R16086:16092 LF.Induction <> add_0_r thm
-R16086:16092 LF.Induction <> add_0_r thm
-R16086:16092 LF.Induction <> add_0_r thm
-R16166:16174 LF.Induction <> plus_n_Sm thm
-R16166:16174 LF.Induction <> plus_n_Sm thm
-R16166:16174 LF.Induction <> plus_n_Sm thm
-R17028:17031 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R17025:17027 Coq.Init.Datatypes <> nat ind
-binder 17021:17021 <> P:69
-R17045:17052 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R17042:17042 LF.IndPrinciples <> P:69 var
-R17053:17053 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R17096:17104 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R17065:17067 Coq.Init.Datatypes <> nat ind
-binder 17061:17061 <> n:70
-R17074:17077 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R17070:17071 LF.ProofObjects <> ev ind
-R17073:17073 LF.IndPrinciples <> n:70 var
-R17081:17084 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R17078:17078 LF.IndPrinciples <> P:69 var
-R17080:17080 LF.IndPrinciples <> n:70 var
-R17085:17085 LF.IndPrinciples <> P:69 var
-R17088:17088 Coq.Init.Datatypes <> S constr
-R17091:17091 Coq.Init.Datatypes <> S constr
-R17093:17093 LF.IndPrinciples <> n:70 var
-R17116:17118 Coq.Init.Datatypes <> nat ind
-binder 17112:17112 <> n:71
-R17125:17128 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R17121:17122 LF.ProofObjects <> ev ind
-R17124:17124 LF.IndPrinciples <> n:71 var
-R17129:17129 LF.IndPrinciples <> P:69 var
-R17131:17131 LF.IndPrinciples <> n:71 var
-R17003:17008 LF.ProofObjects <> ev_ind scheme
-ind 17738:17740 <> ev'
-constr 17763:17767 <> ev'_0
-constr 17781:17785 <> ev'_2
-constr 17799:17805 <> ev'_sum
-R17747:17750 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R17744:17746 Coq.Init.Datatypes <> nat ind
-R17771:17773 LF.IndPrinciples <> ev':72 ind
-R17789:17791 LF.IndPrinciples <> ev':72 ind
-binder 17807:17807 <> n:74
-binder 17809:17809 <> m:75
-R17817:17819 LF.IndPrinciples <> ev':72 ind
-R17821:17821 LF.IndPrinciples <> n:74 var
-binder 17812:17813 <> Hn:76
-R17830:17832 LF.IndPrinciples <> ev':72 ind
-R17834:17834 LF.IndPrinciples <> m:75 var
-binder 17825:17826 <> Hm:77
-R17839:17841 LF.IndPrinciples <> ev':72 ind
-R17845:17847 LF.Basics <> ::nat_scope:x_'+'_x not
-R17844:17844 LF.IndPrinciples <> n:74 var
-R17848:17848 LF.IndPrinciples <> m:75 var
-scheme 17738:17740 <> ev'_ind
-scheme 17738:17740 <> ev'_sind
-prf 17861:17866 <> ev_ev'
-binder 17877:17877 <> n:78
-R17884:17887 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R17880:17881 LF.ProofObjects <> ev ind
-R17883:17883 LF.IndPrinciples <> n:78 var
-R17888:17890 LF.IndPrinciples <> ev' ind
-R17892:17892 LF.IndPrinciples <> n:78 var
-R17910:17915 LF.ProofObjects <> ev_ind scheme
-R17910:17915 LF.ProofObjects <> ev_ind scheme
-R17943:17947 LF.IndPrinciples <> ev'_0 constr
-R17943:17947 LF.IndPrinciples <> ev'_0 constr
-R17997:18003 LF.IndPrinciples <> ev'_sum constr
-R17997:18003 LF.IndPrinciples <> ev'_sum constr
-R18023:18027 LF.IndPrinciples <> ev'_2 constr
-R18023:18027 LF.IndPrinciples <> ev'_2 constr
-ind 18170:18172 <> le1
-constr 18202:18206 <> le1_n
-constr 18232:18236 <> le1_S
-R18179:18182 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18176:18178 Coq.Init.Datatypes <> nat ind
-R18186:18189 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18183:18185 Coq.Init.Datatypes <> nat ind
-binder 18217:18217 <> n:81
-R18220:18222 LF.IndPrinciples <> le1:79 ind
-R18226:18226 LF.IndPrinciples <> n:81 var
-R18224:18224 LF.IndPrinciples <> n:81 var
-binder 18247:18247 <> n:82
-binder 18249:18249 <> m:83
-R18252:18252 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18260:18265 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18277:18277 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18253:18255 LF.IndPrinciples <> le1:79 ind
-R18259:18259 LF.IndPrinciples <> m:83 var
-R18257:18257 LF.IndPrinciples <> n:82 var
-R18266:18268 LF.IndPrinciples <> le1:79 ind
-R18273:18273 Coq.Init.Datatypes <> S constr
-R18275:18275 LF.IndPrinciples <> m:83 var
-R18270:18270 LF.IndPrinciples <> n:82 var
-scheme 18170:18172 <> le1_ind
-scheme 18170:18172 <> le1_sind
-R18304:18306 LF.IndPrinciples <> le1 ind
-not 18290:18290 <> :::x_'<=1'_x
-ind 18609:18611 <> le2
-constr 18642:18646 <> le2_n
-constr 18662:18666 <> le2_S
-R18616:18618 Coq.Init.Datatypes <> nat ind
-binder 18614:18614 <> n:84
-R18626:18629 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18623:18625 Coq.Init.Datatypes <> nat ind
-R18650:18652 LF.IndPrinciples <> le2:85 ind
-R18656:18656 LF.IndPrinciples <> n:84 var
-R18654:18654 LF.IndPrinciples <> n:84 var
-binder 18668:18668 <> m:87
-R18675:18677 LF.IndPrinciples <> le2:85 ind
-R18681:18681 LF.IndPrinciples <> m:87 var
-R18679:18679 LF.IndPrinciples <> n:84 var
-binder 18671:18671 <> H:88
-R18686:18688 LF.IndPrinciples <> le2:85 ind
-R18693:18693 Coq.Init.Datatypes <> S constr
-R18695:18695 LF.IndPrinciples <> m:87 var
-R18690:18690 LF.IndPrinciples <> n:84 var
-scheme 18609:18611 <> le2_ind
-scheme 18609:18611 <> le2_sind
-R18723:18725 LF.IndPrinciples <> le2 ind
-not 18709:18709 <> :::x_'<=2'_x
-R18912:18915 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18909:18911 Coq.Init.Datatypes <> nat ind
-R18919:18922 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18916:18918 Coq.Init.Datatypes <> nat ind
-binder 18905:18905 <> P:89
-R18933:18933 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18955:18963 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18945:18947 Coq.Init.Datatypes <> nat ind
-binder 18941:18941 <> n:90
-R18950:18950 LF.IndPrinciples <> P:89 var
-R18954:18954 LF.IndPrinciples <> n:90 var
-R18952:18952 LF.IndPrinciples <> n:90 var
-R18964:18964 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R19012:19020 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18978:18980 Coq.Init.Datatypes <> nat ind
-binder 18972:18972 <> n:91
-binder 18974:18974 <> m:92
-R18990:18993 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18984:18988 LF.IndPrinciples <> :::x_'<=1'_x not
-R18983:18983 LF.IndPrinciples <> n:91 var
-R18989:18989 LF.IndPrinciples <> m:92 var
-R18999:19002 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R18994:18994 LF.IndPrinciples <> P:89 var
-R18998:18998 LF.IndPrinciples <> m:92 var
-R18996:18996 LF.IndPrinciples <> n:91 var
-R19003:19003 LF.IndPrinciples <> P:89 var
-R19008:19008 Coq.Init.Datatypes <> S constr
-R19010:19010 LF.IndPrinciples <> m:92 var
-R19005:19005 LF.IndPrinciples <> n:91 var
-R19035:19037 Coq.Init.Datatypes <> nat ind
-binder 19028:19028 <> n:93
-binder 19030:19031 <> n0:94
-R19048:19051 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R19041:19045 LF.IndPrinciples <> :::x_'<=1'_x not
-R19040:19040 LF.IndPrinciples <> n:93 var
-R19046:19047 LF.IndPrinciples <> n0:94 var
-R19052:19052 LF.IndPrinciples <> P:89 var
-R19056:19057 LF.IndPrinciples <> n0:94 var
-R19054:19054 LF.IndPrinciples <> n:93 var
-R18886:18892 LF.IndPrinciples <> le1_ind scheme
-R19091:19093 Coq.Init.Datatypes <> nat ind
-binder 19087:19087 <> n:95
-R19104:19107 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R19101:19103 Coq.Init.Datatypes <> nat ind
-binder 19097:19097 <> P:96
-R19122:19129 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R19119:19119 LF.IndPrinciples <> P:96 var
-R19121:19121 LF.IndPrinciples <> n:95 var
-R19130:19130 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R19172:19180 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R19142:19144 Coq.Init.Datatypes <> nat ind
-binder 19138:19138 <> m:97
-R19154:19157 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R19148:19152 LF.IndPrinciples <> :::x_'<=2'_x not
-R19147:19147 LF.IndPrinciples <> n:95 var
-R19153:19153 LF.IndPrinciples <> m:97 var
-R19161:19164 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R19158:19158 LF.IndPrinciples <> P:96 var
-R19160:19160 LF.IndPrinciples <> m:97 var
-R19165:19165 LF.IndPrinciples <> P:96 var
-R19168:19168 Coq.Init.Datatypes <> S constr
-R19170:19170 LF.IndPrinciples <> m:97 var
-R19193:19195 Coq.Init.Datatypes <> nat ind
-binder 19188:19189 <> n0:98
-R19206:19209 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R19199:19203 LF.IndPrinciples <> :::x_'<=2'_x not
-R19198:19198 LF.IndPrinciples <> n:95 var
-R19204:19205 LF.IndPrinciples <> n0:98 var
-R19210:19210 LF.IndPrinciples <> P:96 var
-R19212:19213 LF.IndPrinciples <> n0:98 var
-R19067:19073 LF.IndPrinciples <> le2_ind scheme
-R28339:28342 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R28336:28338 Coq.Init.Datatypes <> nat ind
-binder 28332:28332 <> P:99
-R28356:28363 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R28353:28353 LF.IndPrinciples <> P:99 var
-R28364:28364 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R28395:28403 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R28376:28378 Coq.Init.Datatypes <> nat ind
-binder 28372:28372 <> n:100
-R28384:28387 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R28381:28381 LF.IndPrinciples <> P:99 var
-R28383:28383 LF.IndPrinciples <> n:100 var
-R28388:28388 LF.IndPrinciples <> P:99 var
-R28391:28391 Coq.Init.Datatypes <> S constr
-R28393:28393 LF.IndPrinciples <> n:100 var
-R28415:28417 Coq.Init.Datatypes <> nat ind
-binder 28411:28411 <> n:101
-R28420:28420 LF.IndPrinciples <> P:99 var
-R28422:28422 LF.IndPrinciples <> n:101 var
-R28313:28319 Coq.Init.Datatypes <> nat_ind scheme
-def 28664:28674 <> build_proof
-R28693:28696 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R28690:28692 Coq.Init.Datatypes <> nat ind
-binder 28686:28686 <> P:102
-R28720:28720 LF.IndPrinciples <> P:102 var
-binder 28713:28716 <> evPO:103
-R28753:28755 Coq.Init.Datatypes <> nat ind
-binder 28749:28749 <> n:104
-R28761:28764 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R28758:28758 LF.IndPrinciples <> P:102 var
-R28760:28760 LF.IndPrinciples <> n:104 var
-R28765:28765 LF.IndPrinciples <> P:102 var
-R28768:28768 Coq.Init.Datatypes <> S constr
-R28770:28770 LF.IndPrinciples <> n:104 var
-binder 28735:28738 <> evPS:105
-R28788:28790 Coq.Init.Datatypes <> nat ind
-binder 28784:28784 <> n:106
-R28795:28795 LF.IndPrinciples <> P:102 var
-R28797:28797 LF.IndPrinciples <> n:106 var
-R28810:28810 LF.IndPrinciples <> n:106 var
-R28826:28829 LF.IndPrinciples <> evPO:103 var
-R28835:28835 Coq.Init.Datatypes <> S constr
-R28842:28845 LF.IndPrinciples <> evPS:105 var
-R28850:28860 LF.IndPrinciples <> build_proof:107 def
-R28869:28872 LF.IndPrinciples <> evPS:105 var
-R28864:28867 LF.IndPrinciples <> evPO:103 var
-R28862:28862 LF.IndPrinciples <> P:102 var
-def 28896:28907 <> nat_ind_tidy
-R28912:28922 LF.IndPrinciples <> build_proof def
-prf 30102:30108 <> even_ev
-R30122:30124 Coq.Init.Datatypes <> nat ind
-binder 30119:30119 <> n:109
-R30140:30143 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R30133:30135 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R30127:30130 LF.Basics <> even def
-R30132:30132 LF.IndPrinciples <> n:109 var
-R30136:30139 LF.Basics <> true constr
-R30144:30145 LF.ProofObjects <> ev ind
-R30147:30147 LF.IndPrinciples <> n:109 var
-R30190:30193 LF.ProofObjects <> ev_0 constr
-R30190:30193 LF.ProofObjects <> ev_0 constr
-R30273:30277 LF.ProofObjects <> ev_SS constr
-R30273:30277 LF.ProofObjects <> ev_SS constr
-def 30851:30858 <> nat_ind2
-R30879:30882 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R30876:30878 Coq.Init.Datatypes <> nat ind
-binder 30872:30872 <> P:110
-R30895:30900 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R30892:30892 LF.IndPrinciples <> P:110 var
-R30904:30909 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R30901:30901 LF.IndPrinciples <> P:110 var
-R30910:30910 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R30944:30950 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R30922:30924 Coq.Init.Datatypes <> nat ind
-binder 30918:30918 <> n:111
-R30930:30933 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R30927:30927 LF.IndPrinciples <> P:110 var
-R30929:30929 LF.IndPrinciples <> n:111 var
-R30934:30934 LF.IndPrinciples <> P:110 var
-R30937:30937 Coq.Init.Datatypes <> S constr
-R30939:30939 Coq.Init.Datatypes <> S constr
-R30941:30941 LF.IndPrinciples <> n:111 var
-R30962:30964 Coq.Init.Datatypes <> nat ind
-binder 30958:30958 <> n:112
-R30968:30968 LF.IndPrinciples <> P:110 var
-R30970:30970 LF.IndPrinciples <> n:112 var
-binder 30983:30983 <> P:113
-binder 30992:30993 <> P0:114
-binder 31002:31003 <> P1:115
-binder 31012:31014 <> PSS:116
-R31034:31036 Coq.Init.Datatypes <> nat ind
-binder 31032:31032 <> n:117
-R31048:31048 LF.IndPrinciples <> n:117 var
-R31085:31086 LF.IndPrinciples <> P0:114 var
-R31118:31119 LF.IndPrinciples <> P1:115 var
-R31146:31146 Coq.Init.Datatypes <> S constr
-R31149:31149 Coq.Init.Datatypes <> S constr
-R31158:31160 LF.IndPrinciples <> PSS:116 var
-R31166:31166 LF.IndPrinciples <> f:118 var
-prf 31547:31553 <> even_ev
-binder 31564:31564 <> n:120
-R31580:31583 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R31573:31575 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R31567:31570 LF.Basics <> even def
-R31572:31572 LF.IndPrinciples <> n:120 var
-R31576:31579 LF.Basics <> true constr
-R31584:31585 LF.ProofObjects <> ev ind
-R31587:31587 LF.IndPrinciples <> n:120 var
-R31639:31646 LF.IndPrinciples <> nat_ind2 def
-R31639:31646 LF.IndPrinciples <> nat_ind2 def
-R31659:31662 LF.ProofObjects <> ev_0 constr
-R31659:31662 LF.ProofObjects <> ev_0 constr
-R31724:31728 LF.ProofObjects <> ev_SS constr
-R31724:31728 LF.ProofObjects <> ev_SS constr
-R32008:32011 LF.Poly <> pair constr
-R32017:32020 LF.Poly <> pair constr
-not 31983:31983 <> ::core_scope:'('_x_','_x_','_'..'_','_x_')'
-ind 32058:32063 <> t_tree
-constr 32088:32093 <> t_leaf
-constr 32097:32104 <> t_branch
-binder 32066:32066 <> X:121
-R32108:32108 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R32132:32136 Coq.Init.Logic <> ::type_scope:x_'->'_x not
-R32121:32123 LF.Poly <> ::type_scope:x_'*'_x not
-R32117:32119 LF.Poly <> ::type_scope:x_'*'_x not
-R32109:32114 LF.IndPrinciples <> t_tree:122 ind
-R32116:32116 LF.IndPrinciples <> X:121 var
-R32120:32120 LF.IndPrinciples <> X:121 var
-R32124:32129 LF.IndPrinciples <> t_tree:122 ind
-R32131:32131 LF.IndPrinciples <> X:121 var
-R32137:32142 LF.IndPrinciples <> t_tree:122 ind
-R32144:32144 LF.IndPrinciples <> X:121 var
-scheme 32058:32063 <> t_tree_rect
-scheme 32058:32063 <> t_tree_ind
-scheme 32058:32063 <> t_tree_rec
-scheme 32058:32063 <> t_tree_sind
-R32158:32163 LF.IndPrinciples <> t_leaf constr
-R32158:32163 LF.IndPrinciples <> t_leaf constr
-R32180:32187 LF.IndPrinciples <> t_branch constr
-R32180:32187 LF.IndPrinciples <> t_branch constr
-R32369:32378 LF.IndPrinciples <> t_tree_ind scheme
-def 32516:32522 <> reflect
-binder 32525:32525 <> X:124
-R32540:32545 LF.IndPrinciples <> t_tree ind
-R32547:32547 LF.IndPrinciples <> X:124 var
-binder 32536:32536 <> t:125
-R32552:32557 LF.IndPrinciples <> t_tree ind
-R32559:32559 LF.IndPrinciples <> X:124 var
-R32572:32572 LF.IndPrinciples <> t:125 var
-R32583:32588 LF.IndPrinciples <> t_leaf constr
-R32593:32598 LF.IndPrinciples <> t_leaf constr
-R32604:32611 LF.IndPrinciples <> t_branch constr
-R32613:32613 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R32615:32616 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R32618:32619 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R32621:32621 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R32626:32633 LF.IndPrinciples <> t_branch constr
-R32635:32635 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R32645:32646 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R32648:32649 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R32659:32659 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
-R32636:32642 LF.IndPrinciples <> reflect:126 def
-R32650:32656 LF.IndPrinciples <> reflect:126 def
-prf 32677:32694 <> reflect_involution
-binder 32706:32706 <> X:128
-R32721:32726 LF.IndPrinciples <> t_tree ind
-R32728:32728 LF.IndPrinciples <> X:128 var
-binder 32717:32717 <> t:129
-R32755:32757 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R32736:32742 LF.IndPrinciples <> reflect def
-R32745:32751 LF.IndPrinciples <> reflect def
-R32753:32753 LF.IndPrinciples <> t:129 var
-R32758:32758 LF.IndPrinciples <> t:129 var
-def 33222:33243 <> better_t_tree_ind_type
-def 33461:33477 <> better_t_tree_ind
-R33481:33502 LF.IndPrinciples <> better_t_tree_ind_type prfax
-prf 33978:33995 <> reflect_involution
-binder 34007:34007 <> X:130
-R34022:34027 LF.IndPrinciples <> t_tree ind
-R34029:34029 LF.IndPrinciples <> X:130 var
-binder 34018:34018 <> t:131
-R34056:34058 Coq.Init.Logic <> ::type_scope:x_'='_x not
-R34037:34043 LF.IndPrinciples <> reflect def
-R34046:34052 LF.IndPrinciples <> reflect def
-R34054:34054 LF.IndPrinciples <> t:131 var
-R34059:34059 LF.IndPrinciples <> t:131 var
+R2772:2778 Coq.Init.Datatypes <> nat_ind scheme
+R2772:2778 Coq.Init.Datatypes <> nat_ind scheme
+ind 3914:3917 <> time
+constr 3933:3935 <> day
+constr 3941:3945 <> night
+scheme 3914:3917 <> time_rect
+scheme 3914:3917 <> time_ind
+scheme 3914:3917 <> time_rec
+scheme 3914:3917 <> time_sind
+R3983:3986 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3979:3982 LF.IndPrinciples <> time ind
+binder 3975:3975 <> P:8
+R4002:4009 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R3997:3997 LF.IndPrinciples <> P:8 var
+R3999:4001 LF.IndPrinciples <> day constr
+R4017:4024 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4010:4010 LF.IndPrinciples <> P:8 var
+R4012:4016 LF.IndPrinciples <> night constr
+R4036:4039 LF.IndPrinciples <> time ind
+binder 4032:4032 <> t:9
+R4042:4042 LF.IndPrinciples <> P:8 var
+R4044:4044 LF.IndPrinciples <> t:9 var
+R3955:3962 LF.IndPrinciples <> time_ind scheme
+ind 4314:4316 <> rgb
+constr 4332:4334 <> red
+constr 4340:4344 <> green
+constr 4350:4353 <> blue
+scheme 4314:4316 <> rgb_rect
+scheme 4314:4316 <> rgb_ind
+scheme 4314:4316 <> rgb_rec
+scheme 4314:4316 <> rgb_sind
+R4362:4368 LF.IndPrinciples <> rgb_ind scheme
+ind 4490:4496 <> natlist
+constr 4512:4515 <> nnil
+constr 4521:4525 <> ncons
+R4532:4534 Coq.Init.Datatypes <> nat ind
+binder 4528:4528 <> n:14
+R4542:4548 LF.IndPrinciples <> natlist:12 ind
+binder 4538:4538 <> l:15
+scheme 4490:4496 <> natlist_rect
+scheme 4490:4496 <> natlist_ind
+scheme 4490:4496 <> natlist_rec
+scheme 4490:4496 <> natlist_sind
+R4593:4596 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4586:4592 LF.IndPrinciples <> natlist ind
+binder 4582:4582 <> P:16
+R4613:4621 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4607:4607 LF.IndPrinciples <> P:16 var
+R4609:4612 LF.IndPrinciples <> nnil constr
+R4622:4622 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4683:4691 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4635:4637 Coq.Init.Datatypes <> nat ind
+binder 4631:4631 <> n:17
+R4645:4651 LF.IndPrinciples <> natlist ind
+binder 4641:4641 <> l:18
+R4666:4669 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R4663:4663 LF.IndPrinciples <> P:16 var
+R4665:4665 LF.IndPrinciples <> l:18 var
+R4670:4670 LF.IndPrinciples <> P:16 var
+R4673:4677 LF.IndPrinciples <> ncons constr
+R4679:4679 LF.IndPrinciples <> n:17 var
+R4681:4681 LF.IndPrinciples <> l:18 var
+R4703:4709 LF.IndPrinciples <> natlist ind
+binder 4699:4699 <> l:19
+R4712:4712 LF.IndPrinciples <> P:16 var
+R4714:4714 LF.IndPrinciples <> l:19 var
+R4559:4569 LF.IndPrinciples <> natlist_ind scheme
+ind 5457:5464 <> natlist'
+constr 5480:5484 <> nnil'
+constr 5490:5494 <> nsnoc
+R5501:5508 LF.IndPrinciples <> natlist':20 ind
+binder 5497:5497 <> l:22
+R5516:5518 Coq.Init.Datatypes <> nat ind
+binder 5512:5512 <> n:23
+scheme 5457:5464 <> natlist'_rect
+scheme 5457:5464 <> natlist'_ind
+scheme 5457:5464 <> natlist'_rec
+scheme 5457:5464 <> natlist'_sind
+R5676:5679 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5668:5675 LF.IndPrinciples <> natlist' ind
+binder 5664:5664 <> P:24
+R5697:5704 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5690:5690 LF.IndPrinciples <> P:24 var
+R5692:5696 LF.IndPrinciples <> nnil' constr
+R5705:5705 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5763:5771 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5717:5724 LF.IndPrinciples <> natlist' ind
+binder 5713:5713 <> l:25
+R5730:5733 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R5727:5727 LF.IndPrinciples <> P:24 var
+R5729:5729 LF.IndPrinciples <> l:25 var
+R5745:5747 Coq.Init.Datatypes <> nat ind
+binder 5741:5741 <> n:26
+R5750:5750 LF.IndPrinciples <> P:24 var
+R5753:5757 LF.IndPrinciples <> nsnoc constr
+R5759:5759 LF.IndPrinciples <> l:25 var
+R5761:5761 LF.IndPrinciples <> n:26 var
+R5783:5790 LF.IndPrinciples <> natlist' ind
+binder 5779:5779 <> n:27
+R5793:5793 LF.IndPrinciples <> P:24 var
+R5795:5795 LF.IndPrinciples <> n:27 var
+R5640:5651 LF.IndPrinciples <> natlist'_ind scheme
+ind 5953:5960 <> booltree
+constr 5976:5983 <> bt_empty
+constr 5989:5995 <> bt_leaf
+constr 6012:6020 <> bt_branch
+R6002:6005 LF.Basics <> bool ind
+binder 5998:5998 <> b:30
+R6027:6030 LF.Basics <> bool ind
+binder 6023:6023 <> b:31
+R6042:6049 LF.IndPrinciples <> booltree:28 ind
+binder 6034:6035 <> t1:32
+binder 6037:6038 <> t2:33
+scheme 5953:5960 <> booltree_rect
+scheme 5953:5960 <> booltree_ind
+scheme 5953:5960 <> booltree_rec
+scheme 5953:5960 <> booltree_sind
+def 6443:6464 <> booltree_property_type
+R6484:6487 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6476:6483 LF.IndPrinciples <> booltree ind
+def 6506:6514 <> base_case
+R6521:6542 LF.IndPrinciples <> booltree_property_type def
+binder 6517:6517 <> P:34
+R6555:6555 LF.IndPrinciples <> P:34 var
+R6557:6564 LF.IndPrinciples <> bt_empty constr
+def 6579:6587 <> leaf_case
+R6594:6615 LF.IndPrinciples <> booltree_property_type def
+binder 6590:6590 <> P:35
+R6644:6647 LF.Basics <> bool ind
+binder 6640:6640 <> b:36
+R6650:6650 LF.IndPrinciples <> P:35 var
+R6653:6659 LF.IndPrinciples <> bt_leaf constr
+R6661:6661 LF.IndPrinciples <> b:36 var
+def 6678:6688 <> branch_case
+R6695:6716 LF.IndPrinciples <> booltree_property_type def
+binder 6691:6691 <> P:37
+R6746:6749 LF.Basics <> bool ind
+binder 6742:6742 <> b:38
+R6758:6765 LF.IndPrinciples <> booltree ind
+binder 6753:6754 <> t1:39
+R6773:6784 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6838:6838 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6769:6769 LF.IndPrinciples <> P:37 var
+R6771:6772 LF.IndPrinciples <> t1:39 var
+R6798:6805 LF.IndPrinciples <> booltree ind
+binder 6793:6794 <> t2:40
+R6813:6816 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6809:6809 LF.IndPrinciples <> P:37 var
+R6811:6812 LF.IndPrinciples <> t2:40 var
+R6817:6817 LF.IndPrinciples <> P:37 var
+R6820:6828 LF.IndPrinciples <> bt_branch constr
+R6830:6830 LF.IndPrinciples <> b:38 var
+R6832:6833 LF.IndPrinciples <> t1:39 var
+R6835:6836 LF.IndPrinciples <> t2:40 var
+def 6854:6870 <> booltree_ind_type
+R6889:6910 LF.IndPrinciples <> booltree_property_type def
+binder 6885:6885 <> P:41
+R6929:6936 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6918:6926 LF.IndPrinciples <> base_case def
+R6928:6928 LF.IndPrinciples <> P:41 var
+R6948:6955 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6937:6945 LF.IndPrinciples <> leaf_case def
+R6947:6947 LF.IndPrinciples <> P:41 var
+R6969:6976 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R6956:6966 LF.IndPrinciples <> branch_case def
+R6968:6968 LF.IndPrinciples <> P:41 var
+R6989:6996 LF.IndPrinciples <> booltree ind
+binder 6985:6985 <> b:42
+R7000:7000 LF.IndPrinciples <> P:41 var
+R7002:7002 LF.IndPrinciples <> b:42 var
+prf 7339:7363 <> booltree_ind_type_correct
+R7367:7383 LF.IndPrinciples <> booltree_ind_type def
+R7402:7413 LF.IndPrinciples <> booltree_ind scheme
+R7402:7413 LF.IndPrinciples <> booltree_ind scheme
+ind 7810:7812 <> Toy
+constr 7828:7831 <> Con1
+constr 7848:7851 <> Con2
+R7838:7841 LF.Basics <> bool ind
+binder 7834:7834 <> b:45
+R7858:7860 Coq.Init.Datatypes <> nat ind
+binder 7854:7854 <> n:46
+R7868:7870 LF.IndPrinciples <> Toy:43 ind
+binder 7864:7864 <> t:47
+scheme 7810:7812 <> Toy_rect
+scheme 7810:7812 <> Toy_ind
+scheme 7810:7812 <> Toy_rec
+scheme 7810:7812 <> Toy_sind
+prf 8243:8253 <> Toy_correct
+R8257:8263 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+R8267:8270 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
+binder 8264:8264 <> f:48
+binder 8266:8266 <> g:49
+R8285:8288 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8282:8284 LF.IndPrinciples <> Toy ind
+binder 8278:8278 <> P:50
+R8299:8299 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8324:8332 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8311:8314 LF.Basics <> bool ind
+binder 8307:8307 <> b:51
+R8317:8317 LF.IndPrinciples <> P:50 var
+R8320:8320 LF.IndPrinciples <> f:48 var
+R8322:8322 LF.IndPrinciples <> b:51 var
+R8333:8333 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8378:8386 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8346:8348 Coq.Init.Datatypes <> nat ind
+binder 8342:8342 <> n:52
+R8356:8358 LF.IndPrinciples <> Toy ind
+binder 8352:8352 <> t:53
+R8365:8368 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R8362:8362 LF.IndPrinciples <> P:50 var
+R8364:8364 LF.IndPrinciples <> t:53 var
+R8369:8369 LF.IndPrinciples <> P:50 var
+R8372:8372 LF.IndPrinciples <> g:49 var
+R8374:8374 LF.IndPrinciples <> n:52 var
+R8376:8376 LF.IndPrinciples <> t:53 var
+R8398:8400 LF.IndPrinciples <> Toy ind
+binder 8394:8394 <> t:54
+R8403:8403 LF.IndPrinciples <> P:50 var
+R8405:8405 LF.IndPrinciples <> t:54 var
+R8425:8428 LF.IndPrinciples <> Con1 constr
+R8425:8428 LF.IndPrinciples <> Con1 constr
+R8440:8443 LF.IndPrinciples <> Con2 constr
+R8440:8443 LF.IndPrinciples <> Con2 constr
+R8454:8460 LF.IndPrinciples <> Toy_ind scheme
+R8454:8460 LF.IndPrinciples <> Toy_ind scheme
+ind 9826:9829 <> tree
+constr 9854:9857 <> leaf
+constr 9871:9874 <> node
+binder 9832:9832 <> X:55
+R9864:9864 LF.IndPrinciples <> X:55 var
+binder 9860:9860 <> x:58
+R9885:9888 LF.IndPrinciples <> tree:56 ind
+R9890:9890 LF.IndPrinciples <> X:55 var
+binder 9877:9878 <> t1:59
+binder 9880:9881 <> t2:60
+scheme 9826:9829 <> tree_rect
+scheme 9826:9829 <> tree_ind
+scheme 9826:9829 <> tree_rec
+scheme 9826:9829 <> tree_sind
+R9900:9907 LF.IndPrinciples <> tree_ind scheme
+ind 10842:10844 <> foo
+constr 10873:10875 <> Bar
+constr 10889:10891 <> Baz
+constr 10905:10908 <> Quux
+binder 10847:10847 <> X:61
+binder 10849:10849 <> Y:62
+R10882:10882 LF.IndPrinciples <> X:61 var
+binder 10878:10878 <> x:65
+R10898:10898 LF.IndPrinciples <> Y:62 var
+binder 10894:10894 <> y:66
+R10919:10922 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R10916:10918 Coq.Init.Datatypes <> nat ind
+R10923:10925 LF.IndPrinciples <> foo:63 ind
+R10929:10929 LF.IndPrinciples <> Y:62 var
+R10927:10927 LF.IndPrinciples <> X:61 var
+binder 10911:10912 <> f1:67
+scheme 10842:10844 <> foo_rect
+scheme 10842:10844 <> foo_ind
+scheme 10842:10844 <> foo_rec
+scheme 10842:10844 <> foo_sind
+R10940:10946 LF.IndPrinciples <> foo_ind scheme
+ind 11067:11070 <> foo'
+constr 11095:11096 <> C1
+constr 11128:11129 <> C2
+binder 11073:11073 <> X:68
+R11103:11106 LF.Poly <> list ind
+R11108:11108 LF.IndPrinciples <> X:68 var
+binder 11099:11099 <> l:71
+R11116:11119 LF.IndPrinciples <> foo':69 ind
+R11121:11121 LF.IndPrinciples <> X:68 var
+binder 11112:11112 <> f:72
+scheme 11067:11070 <> foo'_rect
+scheme 11067:11070 <> foo'_ind
+scheme 11067:11070 <> foo'_rec
+scheme 11067:11070 <> foo'_sind
+R11590:11597 LF.IndPrinciples <> foo'_ind scheme
+def 12491:12495 <> P_m0r
+R12500:12502 Coq.Init.Datatypes <> nat ind
+binder 12498:12498 <> n:73
+R12522:12524 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12518:12520 LF.Basics <> ::nat_scope:x_'*'_x not
+R12517:12517 LF.IndPrinciples <> n:73 var
+def 12569:12574 <> P_m0r'
+R12581:12584 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R12578:12580 Coq.Init.Datatypes <> nat ind
+binder 12599:12599 <> n:74
+R12609:12611 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R12605:12607 LF.Basics <> ::nat_scope:x_'*'_x not
+R12604:12604 LF.IndPrinciples <> n:74 var
+prf 12692:12700 <> mul_0_r''
+R12713:12715 Coq.Init.Datatypes <> nat ind
+binder 12711:12711 <> n:75
+R12720:12724 LF.IndPrinciples <> P_m0r def
+R12726:12726 LF.IndPrinciples <> n:75 var
+R12744:12750 Coq.Init.Datatypes <> nat_ind scheme
+R12744:12750 Coq.Init.Datatypes <> nat_ind scheme
+R12876:12880 LF.IndPrinciples <> P_m0r def
+R12897:12901 LF.IndPrinciples <> P_m0r def
+prf 14807:14816 <> add_assoc'
+R14835:14837 Coq.Init.Datatypes <> nat ind
+binder 14827:14827 <> n:76
+binder 14829:14829 <> m:77
+binder 14831:14831 <> p:78
+R14853:14855 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R14843:14846 LF.Basics <> ::nat_scope:x_'+'_x not
+R14852:14852 LF.Basics <> ::nat_scope:x_'+'_x not
+R14842:14842 LF.IndPrinciples <> n:76 var
+R14848:14850 LF.Basics <> ::nat_scope:x_'+'_x not
+R14847:14847 LF.IndPrinciples <> m:77 var
+R14851:14851 LF.IndPrinciples <> p:78 var
+R14856:14856 LF.Basics <> ::nat_scope:x_'+'_x not
+R14862:14865 LF.Basics <> ::nat_scope:x_'+'_x not
+R14858:14860 LF.Basics <> ::nat_scope:x_'+'_x not
+R14857:14857 LF.IndPrinciples <> n:76 var
+R14861:14861 LF.IndPrinciples <> m:77 var
+R14866:14866 LF.IndPrinciples <> p:78 var
+prf 15462:15470 <> add_comm'
+R15487:15489 Coq.Init.Datatypes <> nat ind
+binder 15481:15481 <> n:79
+binder 15483:15483 <> m:80
+R15499:15501 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R15495:15497 LF.Basics <> ::nat_scope:x_'+'_x not
+R15494:15494 LF.IndPrinciples <> n:79 var
+R15498:15498 LF.IndPrinciples <> m:80 var
+R15503:15505 LF.Basics <> ::nat_scope:x_'+'_x not
+R15502:15502 LF.IndPrinciples <> m:80 var
+R15506:15506 LF.IndPrinciples <> n:79 var
+R15578:15584 LF.Induction <> add_0_r thm
+R15578:15584 LF.Induction <> add_0_r thm
+R15578:15584 LF.Induction <> add_0_r thm
+R15668:15676 LF.Induction <> plus_n_Sm thm
+R15668:15676 LF.Induction <> plus_n_Sm thm
+R15668:15676 LF.Induction <> plus_n_Sm thm
+prf 16091:16100 <> add_comm''
+R16117:16119 Coq.Init.Datatypes <> nat ind
+binder 16111:16111 <> n:81
+binder 16113:16113 <> m:82
+R16129:16131 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R16125:16127 LF.Basics <> ::nat_scope:x_'+'_x not
+R16124:16124 LF.IndPrinciples <> n:81 var
+R16128:16128 LF.IndPrinciples <> m:82 var
+R16133:16135 LF.Basics <> ::nat_scope:x_'+'_x not
+R16132:16132 LF.IndPrinciples <> m:82 var
+R16136:16136 LF.IndPrinciples <> n:81 var
+R16317:16323 LF.Induction <> add_0_r thm
+R16317:16323 LF.Induction <> add_0_r thm
+R16317:16323 LF.Induction <> add_0_r thm
+R16397:16405 LF.Induction <> plus_n_Sm thm
+R16397:16405 LF.Induction <> plus_n_Sm thm
+R16397:16405 LF.Induction <> plus_n_Sm thm
+R17259:17262 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17256:17258 Coq.Init.Datatypes <> nat ind
+binder 17252:17252 <> P:83
+R17276:17283 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17273:17273 LF.IndPrinciples <> P:83 var
+R17284:17284 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17327:17335 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17296:17298 Coq.Init.Datatypes <> nat ind
+binder 17292:17292 <> n:84
+R17305:17308 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17301:17302 LF.ProofObjects <> ev ind
+R17304:17304 LF.IndPrinciples <> n:84 var
+R17312:17315 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17309:17309 LF.IndPrinciples <> P:83 var
+R17311:17311 LF.IndPrinciples <> n:84 var
+R17316:17316 LF.IndPrinciples <> P:83 var
+R17319:17319 Coq.Init.Datatypes <> S constr
+R17322:17322 Coq.Init.Datatypes <> S constr
+R17324:17324 LF.IndPrinciples <> n:84 var
+R17347:17349 Coq.Init.Datatypes <> nat ind
+binder 17343:17343 <> n:85
+R17356:17359 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17352:17353 LF.ProofObjects <> ev ind
+R17355:17355 LF.IndPrinciples <> n:85 var
+R17360:17360 LF.IndPrinciples <> P:83 var
+R17362:17362 LF.IndPrinciples <> n:85 var
+R17234:17239 LF.ProofObjects <> ev_ind scheme
+ind 17969:17971 <> ev'
+constr 17994:17998 <> ev'_0
+constr 18012:18016 <> ev'_2
+constr 18030:18036 <> ev'_sum
+R17978:17981 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R17975:17977 Coq.Init.Datatypes <> nat ind
+R18002:18004 LF.IndPrinciples <> ev':86 ind
+R18020:18022 LF.IndPrinciples <> ev':86 ind
+binder 18038:18038 <> n:88
+binder 18040:18040 <> m:89
+R18048:18050 LF.IndPrinciples <> ev':86 ind
+R18052:18052 LF.IndPrinciples <> n:88 var
+binder 18043:18044 <> Hn:90
+R18061:18063 LF.IndPrinciples <> ev':86 ind
+R18065:18065 LF.IndPrinciples <> m:89 var
+binder 18056:18057 <> Hm:91
+R18070:18072 LF.IndPrinciples <> ev':86 ind
+R18076:18078 LF.Basics <> ::nat_scope:x_'+'_x not
+R18075:18075 LF.IndPrinciples <> n:88 var
+R18079:18079 LF.IndPrinciples <> m:89 var
+scheme 17969:17971 <> ev'_ind
+scheme 17969:17971 <> ev'_sind
+prf 18092:18097 <> ev_ev'
+binder 18108:18108 <> n:92
+R18115:18118 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R18111:18112 LF.ProofObjects <> ev ind
+R18114:18114 LF.IndPrinciples <> n:92 var
+R18119:18121 LF.IndPrinciples <> ev' ind
+R18123:18123 LF.IndPrinciples <> n:92 var
+R18141:18146 LF.ProofObjects <> ev_ind scheme
+R18141:18146 LF.ProofObjects <> ev_ind scheme
+R18174:18178 LF.IndPrinciples <> ev'_0 constr
+R18174:18178 LF.IndPrinciples <> ev'_0 constr
+R18228:18234 LF.IndPrinciples <> ev'_sum constr
+R18228:18234 LF.IndPrinciples <> ev'_sum constr
+R18254:18258 LF.IndPrinciples <> ev'_2 constr
+R18254:18258 LF.IndPrinciples <> ev'_2 constr
+ind 18401:18403 <> le1
+constr 18433:18437 <> le1_n
+constr 18463:18467 <> le1_S
+R18410:18413 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R18407:18409 Coq.Init.Datatypes <> nat ind
+R18417:18420 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R18414:18416 Coq.Init.Datatypes <> nat ind
+binder 18448:18448 <> n:95
+R18451:18453 LF.IndPrinciples <> le1:93 ind
+R18457:18457 LF.IndPrinciples <> n:95 var
+R18455:18455 LF.IndPrinciples <> n:95 var
+binder 18478:18478 <> n:96
+binder 18480:18480 <> m:97
+R18483:18483 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R18491:18496 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R18508:18508 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R18484:18486 LF.IndPrinciples <> le1:93 ind
+R18490:18490 LF.IndPrinciples <> m:97 var
+R18488:18488 LF.IndPrinciples <> n:96 var
+R18497:18499 LF.IndPrinciples <> le1:93 ind
+R18504:18504 Coq.Init.Datatypes <> S constr
+R18506:18506 LF.IndPrinciples <> m:97 var
+R18501:18501 LF.IndPrinciples <> n:96 var
+scheme 18401:18403 <> le1_ind
+scheme 18401:18403 <> le1_sind
+R18535:18537 LF.IndPrinciples <> le1 ind
+not 18521:18521 <> :::x_'<=1'_x
+ind 18840:18842 <> le2
+constr 18873:18877 <> le2_n
+constr 18893:18897 <> le2_S
+R18847:18849 Coq.Init.Datatypes <> nat ind
+binder 18845:18845 <> n:98
+R18857:18860 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R18854:18856 Coq.Init.Datatypes <> nat ind
+R18881:18883 LF.IndPrinciples <> le2:99 ind
+R18887:18887 LF.IndPrinciples <> n:98 var
+R18885:18885 LF.IndPrinciples <> n:98 var
+binder 18899:18899 <> m:101
+R18906:18908 LF.IndPrinciples <> le2:99 ind
+R18912:18912 LF.IndPrinciples <> m:101 var
+R18910:18910 LF.IndPrinciples <> n:98 var
+binder 18902:18902 <> H:102
+R18917:18919 LF.IndPrinciples <> le2:99 ind
+R18924:18924 Coq.Init.Datatypes <> S constr
+R18926:18926 LF.IndPrinciples <> m:101 var
+R18921:18921 LF.IndPrinciples <> n:98 var
+scheme 18840:18842 <> le2_ind
+scheme 18840:18842 <> le2_sind
+R18954:18956 LF.IndPrinciples <> le2 ind
+not 18940:18940 <> :::x_'<=2'_x
+R19143:19146 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19140:19142 Coq.Init.Datatypes <> nat ind
+R19150:19153 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19147:19149 Coq.Init.Datatypes <> nat ind
+binder 19136:19136 <> P:103
+R19164:19164 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19186:19194 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19176:19178 Coq.Init.Datatypes <> nat ind
+binder 19172:19172 <> n:104
+R19181:19181 LF.IndPrinciples <> P:103 var
+R19185:19185 LF.IndPrinciples <> n:104 var
+R19183:19183 LF.IndPrinciples <> n:104 var
+R19195:19195 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19243:19251 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19209:19211 Coq.Init.Datatypes <> nat ind
+binder 19203:19203 <> n:105
+binder 19205:19205 <> m:106
+R19221:19224 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19215:19219 LF.IndPrinciples <> :::x_'<=1'_x not
+R19214:19214 LF.IndPrinciples <> n:105 var
+R19220:19220 LF.IndPrinciples <> m:106 var
+R19230:19233 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19225:19225 LF.IndPrinciples <> P:103 var
+R19229:19229 LF.IndPrinciples <> m:106 var
+R19227:19227 LF.IndPrinciples <> n:105 var
+R19234:19234 LF.IndPrinciples <> P:103 var
+R19239:19239 Coq.Init.Datatypes <> S constr
+R19241:19241 LF.IndPrinciples <> m:106 var
+R19236:19236 LF.IndPrinciples <> n:105 var
+R19266:19268 Coq.Init.Datatypes <> nat ind
+binder 19259:19259 <> n:107
+binder 19261:19262 <> n0:108
+R19279:19282 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19272:19276 LF.IndPrinciples <> :::x_'<=1'_x not
+R19271:19271 LF.IndPrinciples <> n:107 var
+R19277:19278 LF.IndPrinciples <> n0:108 var
+R19283:19283 LF.IndPrinciples <> P:103 var
+R19287:19288 LF.IndPrinciples <> n0:108 var
+R19285:19285 LF.IndPrinciples <> n:107 var
+R19117:19123 LF.IndPrinciples <> le1_ind scheme
+R19322:19324 Coq.Init.Datatypes <> nat ind
+binder 19318:19318 <> n:109
+R19335:19338 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19332:19334 Coq.Init.Datatypes <> nat ind
+binder 19328:19328 <> P:110
+R19353:19360 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19350:19350 LF.IndPrinciples <> P:110 var
+R19352:19352 LF.IndPrinciples <> n:109 var
+R19361:19361 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19403:19411 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19373:19375 Coq.Init.Datatypes <> nat ind
+binder 19369:19369 <> m:111
+R19385:19388 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19379:19383 LF.IndPrinciples <> :::x_'<=2'_x not
+R19378:19378 LF.IndPrinciples <> n:109 var
+R19384:19384 LF.IndPrinciples <> m:111 var
+R19392:19395 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19389:19389 LF.IndPrinciples <> P:110 var
+R19391:19391 LF.IndPrinciples <> m:111 var
+R19396:19396 LF.IndPrinciples <> P:110 var
+R19399:19399 Coq.Init.Datatypes <> S constr
+R19401:19401 LF.IndPrinciples <> m:111 var
+R19424:19426 Coq.Init.Datatypes <> nat ind
+binder 19419:19420 <> n0:112
+R19437:19440 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R19430:19434 LF.IndPrinciples <> :::x_'<=2'_x not
+R19429:19429 LF.IndPrinciples <> n:109 var
+R19435:19436 LF.IndPrinciples <> n0:112 var
+R19441:19441 LF.IndPrinciples <> P:110 var
+R19443:19444 LF.IndPrinciples <> n0:112 var
+R19298:19304 LF.IndPrinciples <> le2_ind scheme
+R28570:28573 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28567:28569 Coq.Init.Datatypes <> nat ind
+binder 28563:28563 <> P:113
+R28587:28594 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28584:28584 LF.IndPrinciples <> P:113 var
+R28595:28595 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28626:28634 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28607:28609 Coq.Init.Datatypes <> nat ind
+binder 28603:28603 <> n:114
+R28615:28618 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28612:28612 LF.IndPrinciples <> P:113 var
+R28614:28614 LF.IndPrinciples <> n:114 var
+R28619:28619 LF.IndPrinciples <> P:113 var
+R28622:28622 Coq.Init.Datatypes <> S constr
+R28624:28624 LF.IndPrinciples <> n:114 var
+R28646:28648 Coq.Init.Datatypes <> nat ind
+binder 28642:28642 <> n:115
+R28651:28651 LF.IndPrinciples <> P:113 var
+R28653:28653 LF.IndPrinciples <> n:115 var
+R28544:28550 Coq.Init.Datatypes <> nat_ind scheme
+def 28895:28905 <> build_proof
+R28924:28927 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28921:28923 Coq.Init.Datatypes <> nat ind
+binder 28917:28917 <> P:116
+R28951:28951 LF.IndPrinciples <> P:116 var
+binder 28944:28947 <> evPO:117
+R28984:28986 Coq.Init.Datatypes <> nat ind
+binder 28980:28980 <> n:118
+R28992:28995 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R28989:28989 LF.IndPrinciples <> P:116 var
+R28991:28991 LF.IndPrinciples <> n:118 var
+R28996:28996 LF.IndPrinciples <> P:116 var
+R28999:28999 Coq.Init.Datatypes <> S constr
+R29001:29001 LF.IndPrinciples <> n:118 var
+binder 28966:28969 <> evPS:119
+R29019:29021 Coq.Init.Datatypes <> nat ind
+binder 29015:29015 <> n:120
+R29026:29026 LF.IndPrinciples <> P:116 var
+R29028:29028 LF.IndPrinciples <> n:120 var
+R29041:29041 LF.IndPrinciples <> n:120 var
+R29057:29060 LF.IndPrinciples <> evPO:117 var
+R29066:29066 Coq.Init.Datatypes <> S constr
+R29073:29076 LF.IndPrinciples <> evPS:119 var
+R29081:29091 LF.IndPrinciples <> build_proof:121 def
+R29100:29103 LF.IndPrinciples <> evPS:119 var
+R29095:29098 LF.IndPrinciples <> evPO:117 var
+R29093:29093 LF.IndPrinciples <> P:116 var
+def 29127:29138 <> nat_ind_tidy
+R29143:29153 LF.IndPrinciples <> build_proof def
+prf 30333:30339 <> even_ev
+R30353:30355 Coq.Init.Datatypes <> nat ind
+binder 30350:30350 <> n:123
+R30371:30374 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R30364:30366 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R30358:30361 LF.Basics <> even def
+R30363:30363 LF.IndPrinciples <> n:123 var
+R30367:30370 LF.Basics <> true constr
+R30375:30376 LF.ProofObjects <> ev ind
+R30378:30378 LF.IndPrinciples <> n:123 var
+R30421:30424 LF.ProofObjects <> ev_0 constr
+R30421:30424 LF.ProofObjects <> ev_0 constr
+R30504:30508 LF.ProofObjects <> ev_SS constr
+R30504:30508 LF.ProofObjects <> ev_SS constr
+def 31082:31089 <> nat_ind2
+R31110:31113 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31107:31109 Coq.Init.Datatypes <> nat ind
+binder 31103:31103 <> P:124
+R31126:31131 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31123:31123 LF.IndPrinciples <> P:124 var
+R31135:31140 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31132:31132 LF.IndPrinciples <> P:124 var
+R31141:31141 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31175:31181 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31153:31155 Coq.Init.Datatypes <> nat ind
+binder 31149:31149 <> n:125
+R31161:31164 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31158:31158 LF.IndPrinciples <> P:124 var
+R31160:31160 LF.IndPrinciples <> n:125 var
+R31165:31165 LF.IndPrinciples <> P:124 var
+R31168:31168 Coq.Init.Datatypes <> S constr
+R31170:31170 Coq.Init.Datatypes <> S constr
+R31172:31172 LF.IndPrinciples <> n:125 var
+R31193:31195 Coq.Init.Datatypes <> nat ind
+binder 31189:31189 <> n:126
+R31199:31199 LF.IndPrinciples <> P:124 var
+R31201:31201 LF.IndPrinciples <> n:126 var
+binder 31214:31214 <> P:127
+binder 31223:31224 <> P0:128
+binder 31233:31234 <> P1:129
+binder 31243:31245 <> PSS:130
+R31265:31267 Coq.Init.Datatypes <> nat ind
+binder 31263:31263 <> n:131
+R31279:31279 LF.IndPrinciples <> n:131 var
+R31316:31317 LF.IndPrinciples <> P0:128 var
+R31349:31350 LF.IndPrinciples <> P1:129 var
+R31377:31377 Coq.Init.Datatypes <> S constr
+R31380:31380 Coq.Init.Datatypes <> S constr
+R31389:31391 LF.IndPrinciples <> PSS:130 var
+R31397:31397 LF.IndPrinciples <> f:132 var
+prf 31778:31784 <> even_ev
+binder 31795:31795 <> n:134
+R31811:31814 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R31804:31806 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R31798:31801 LF.Basics <> even def
+R31803:31803 LF.IndPrinciples <> n:134 var
+R31807:31810 LF.Basics <> true constr
+R31815:31816 LF.ProofObjects <> ev ind
+R31818:31818 LF.IndPrinciples <> n:134 var
+R31874:31881 LF.IndPrinciples <> nat_ind2 def
+R31874:31881 LF.IndPrinciples <> nat_ind2 def
+R31908:31911 LF.ProofObjects <> ev_0 constr
+R31908:31911 LF.ProofObjects <> ev_0 constr
+R31973:31977 LF.ProofObjects <> ev_SS constr
+R31973:31977 LF.ProofObjects <> ev_SS constr
+R32257:32260 LF.Poly <> pair constr
+R32266:32269 LF.Poly <> pair constr
+not 32232:32232 <> ::core_scope:'('_x_','_x_','_'..'_','_x_')'
+ind 32307:32312 <> t_tree
+constr 32337:32342 <> t_leaf
+constr 32346:32353 <> t_branch
+binder 32315:32315 <> X:135
+R32357:32357 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32381:32385 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R32370:32372 LF.Poly <> ::type_scope:x_'*'_x not
+R32366:32368 LF.Poly <> ::type_scope:x_'*'_x not
+R32358:32363 LF.IndPrinciples <> t_tree:136 ind
+R32365:32365 LF.IndPrinciples <> X:135 var
+R32369:32369 LF.IndPrinciples <> X:135 var
+R32373:32378 LF.IndPrinciples <> t_tree:136 ind
+R32380:32380 LF.IndPrinciples <> X:135 var
+R32386:32391 LF.IndPrinciples <> t_tree:136 ind
+R32393:32393 LF.IndPrinciples <> X:135 var
+scheme 32307:32312 <> t_tree_rect
+scheme 32307:32312 <> t_tree_ind
+scheme 32307:32312 <> t_tree_rec
+scheme 32307:32312 <> t_tree_sind
+R32407:32412 LF.IndPrinciples <> t_leaf constr
+R32407:32412 LF.IndPrinciples <> t_leaf constr
+R32429:32436 LF.IndPrinciples <> t_branch constr
+R32429:32436 LF.IndPrinciples <> t_branch constr
+R32618:32627 LF.IndPrinciples <> t_tree_ind scheme
+def 32765:32771 <> reflect
+binder 32774:32774 <> X:138
+R32789:32794 LF.IndPrinciples <> t_tree ind
+R32796:32796 LF.IndPrinciples <> X:138 var
+binder 32785:32785 <> t:139
+R32801:32806 LF.IndPrinciples <> t_tree ind
+R32808:32808 LF.IndPrinciples <> X:138 var
+R32821:32821 LF.IndPrinciples <> t:139 var
+R32832:32837 LF.IndPrinciples <> t_leaf constr
+R32842:32847 LF.IndPrinciples <> t_leaf constr
+R32853:32860 LF.IndPrinciples <> t_branch constr
+R32862:32862 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32864:32865 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32867:32868 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32870:32870 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32875:32882 LF.IndPrinciples <> t_branch constr
+R32884:32884 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32894:32895 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32897:32898 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32908:32908 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R32885:32891 LF.IndPrinciples <> reflect:140 def
+R32899:32905 LF.IndPrinciples <> reflect:140 def
+prf 32926:32943 <> reflect_involution
+binder 32955:32955 <> X:142
+R32970:32975 LF.IndPrinciples <> t_tree ind
+R32977:32977 LF.IndPrinciples <> X:142 var
+binder 32966:32966 <> t:143
+R33004:33006 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R32985:32991 LF.IndPrinciples <> reflect def
+R32994:33000 LF.IndPrinciples <> reflect def
+R33002:33002 LF.IndPrinciples <> t:143 var
+R33007:33007 LF.IndPrinciples <> t:143 var
+def 33471:33492 <> better_t_tree_ind_type
+binder 33514:33514 <> X:144
+R33537:33540 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33529:33534 LF.IndPrinciples <> t_tree ind
+R33536:33536 LF.IndPrinciples <> X:144 var
+binder 33525:33525 <> P:145
+R33558:33563 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33550:33550 LF.IndPrinciples <> P:145 var
+R33552:33557 LF.IndPrinciples <> t_leaf constr
+R33564:33564 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33672:33682 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33576:33576 LF.IndPrinciples <> X:144 var
+binder 33572:33572 <> v:146
+R33595:33600 LF.IndPrinciples <> t_tree ind
+R33602:33602 LF.IndPrinciples <> X:144 var
+binder 33591:33591 <> l:147
+R33608:33616 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33605:33605 LF.IndPrinciples <> P:145 var
+R33607:33607 LF.IndPrinciples <> l:147 var
+R33628:33633 LF.IndPrinciples <> t_tree ind
+R33635:33635 LF.IndPrinciples <> X:144 var
+binder 33624:33624 <> r:148
+R33641:33649 Coq.Init.Logic <> ::type_scope:x_'->'_x not
+R33638:33638 LF.IndPrinciples <> P:145 var
+R33640:33640 LF.IndPrinciples <> r:148 var
+R33650:33650 LF.IndPrinciples <> P:145 var
+R33653:33660 LF.IndPrinciples <> t_branch constr
+R33662:33662 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R33664:33665 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R33667:33668 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R33670:33670 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R33663:33663 LF.IndPrinciples <> l:147 var
+R33666:33666 LF.IndPrinciples <> v:146 var
+R33669:33669 LF.IndPrinciples <> r:148 var
+R33695:33700 LF.IndPrinciples <> t_tree ind
+R33702:33702 LF.IndPrinciples <> X:144 var
+binder 33691:33691 <> t:149
+R33706:33706 LF.IndPrinciples <> P:145 var
+R33708:33708 LF.IndPrinciples <> t:149 var
+def 33853:33869 <> better_t_tree_ind
+R33873:33894 LF.IndPrinciples <> better_t_tree_ind_type def
+binder 33905:33905 <> X:150
+binder 33914:33914 <> P:151
+binder 33923:33928 <> P_leaf:152
+binder 33937:33944 <> P_branch:153
+R33964:33969 LF.IndPrinciples <> t_tree ind
+R33971:33971 LF.IndPrinciples <> X:150 var
+binder 33960:33960 <> t:154
+R33989:33989 LF.IndPrinciples <> t:154 var
+R34004:34009 LF.IndPrinciples <> t_leaf constr
+R34014:34019 LF.IndPrinciples <> P_leaf:152 var
+R34029:34036 LF.IndPrinciples <> t_branch constr
+R34038:34038 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R34040:34041 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R34043:34044 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R34046:34046 LF.IndPrinciples <> ::core_scope:'('_x_','_x_','_'..'_','_x_')' not
+R34051:34058 LF.IndPrinciples <> P_branch:153 var
+R34065:34065 LF.IndPrinciples <> f:155 var
+R34073:34073 LF.IndPrinciples <> f:155 var
+prf 34515:34532 <> reflect_involution
+binder 34544:34544 <> X:157
+R34559:34564 LF.IndPrinciples <> t_tree ind
+R34566:34566 LF.IndPrinciples <> X:157 var
+binder 34555:34555 <> t:158
+R34593:34595 Coq.Init.Logic <> ::type_scope:x_'='_x not
+R34574:34580 LF.IndPrinciples <> reflect def
+R34583:34589 LF.IndPrinciples <> reflect def
+R34591:34591 LF.IndPrinciples <> t:158 var
+R34596:34596 LF.IndPrinciples <> t:158 var
+R34683:34699 LF.IndPrinciples <> better_t_tree_ind def
+R34683:34699 LF.IndPrinciples <> better_t_tree_ind def

@@ -71,7 +71,10 @@ Proof.
 Theorem plus_one_r' : forall n:nat,
   n + 1 = S n.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  apply nat_ind.
+  - (* n = O *) reflexivity.
+  - (* n = S n' *) simpl. intros n' IHn'. rewrite -> IHn'.
+    reflexivity.  Qed.
 (** [] *)
 
 (** Coq generates induction principles for every datatype
@@ -189,14 +192,14 @@ Inductive booltree : Type :=
 
 Definition booltree_property_type : Type := booltree -> Prop.
 
-Definition base_case (P : booltree_property_type) : Prop
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Definition base_case (P : booltree_property_type) : Prop := P bt_empty.
 
-Definition leaf_case (P : booltree_property_type) : Prop
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Definition leaf_case (P : booltree_property_type) : Prop :=
+    (forall b : bool, P (bt_leaf b)).
 
-Definition branch_case (P : booltree_property_type) : Prop
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Definition branch_case (P : booltree_property_type) : Prop :=
+    (forall (b : bool) (t1 : booltree), P t1 -> 
+      (forall (t2 : booltree), P t2 -> P (bt_branch b t1 t2))).
 
 Definition booltree_ind_type :=
   forall (P : booltree_property_type),
@@ -212,7 +215,9 @@ Definition booltree_ind_type :=
     same type as what you just defined. *)
 
 Theorem booltree_ind_type_correct : booltree_ind_type.
-Proof. (* FILL IN HERE *) Admitted.
+Proof.
+   exact booltree_ind.
+Qed.
 
 (** [] *)
 
@@ -229,8 +234,8 @@ Proof. (* FILL IN HERE *) Admitted.
     principle Coq generates is that given above: *)
 
 Inductive Toy : Type :=
-  (* FILL IN HERE *)
-.
+  | Con1 (b : bool)
+  | Con2 (n : nat) (t : Toy).
 
 (** Show that your definition is correct by proving the following theorem.
     You should be able to instantiate [f] and [g] with your two constructors,
@@ -243,7 +248,11 @@ Theorem Toy_correct : exists f g,
     (forall b : bool, P (f b)) ->
     (forall (n : nat) (t : Toy), P t -> P (g n t)) ->
     forall t : Toy, P t.
-Proof. (* FILL IN HERE *) Admitted.
+Proof. 
+  exists Con1.
+  exists Con2.
+  exact Toy_ind.
+Qed.
 
 (** [] *)
 
@@ -318,7 +327,12 @@ Check tree_ind.
                (forall n : nat, P (f1 n)) -> P (quux X Y f1)) ->
              forall f2 : foo X Y, P f2
 *)
-(** [] *)
+Inductive foo (X Y : Type) : Type :=
+  | Bar (x : X)
+  | Baz (y : Y)
+  | Quux (f1 : nat -> foo X Y).
+
+Check foo_ind.
 
 (** **** Exercise: 1 star, standard, optional (foo')
 
@@ -340,7 +354,7 @@ Inductive foo' (X:Type) : Type :=
              forall f : foo' X, ________________________
 *)
 
-(** [] *)
+Check foo'_ind.
 
 (* ################################################################# *)
 (** * Induction Hypotheses *)
@@ -883,8 +897,9 @@ Definition nat_ind2 :
 
 Lemma even_ev : forall n, even n = true -> ev n.
 Proof.
-  intros.
+  intros n H.
   induction n as [ | |n'] using nat_ind2.
+  Show Proof.
   - apply ev_0.
   - simpl in H.
     inversion H.
@@ -941,14 +956,25 @@ Proof.
     use. There are many possible answers. Recall that you can use
     [match] as part of the definition. *)
 
-Definition better_t_tree_ind_type : Prop
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Definition better_t_tree_ind_type : Prop :=
+  forall (X : Type) (P : t_tree X -> Prop),
+  P t_leaf ->
+  (forall v : X, 
+    forall l : t_tree X, P l -> 
+    forall r : t_tree X, P r -> 
+    P (t_branch (l, v, r))) ->
+      forall (t : t_tree X), P t.
 
 (** Second, define the induction principle by giving a term of that
     type. Use the examples about [nat], above, as models. *)
 
-Definition better_t_tree_ind : better_t_tree_ind_type
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Definition better_t_tree_ind : better_t_tree_ind_type :=
+  fun X => fun P => fun P_leaf => fun P_branch =>
+    fix f (t : t_tree X) :=
+      match t with
+      | t_leaf => P_leaf
+      | t_branch (l, v, r) => P_branch v l (f l) r (f r)
+      end.
 
 (** Finally, prove the theorem. If [induction...using] gives you an
     error about "Cannot recognize an induction scheme", don't worry
@@ -957,10 +983,21 @@ Definition better_t_tree_ind : better_t_tree_ind_type
     to debug what is wrong about that shape.  You can use [apply]
     instead, as we saw at the beginning of this file. *)
 
+Print t_tree_ind.
+
 Theorem reflect_involution : forall (X : Type) (t : t_tree X),
     reflect (reflect t) = t.
-Proof. (* FILL IN HERE *) Admitted.
-
+Proof. 
+  intros X.
+  (* induction t as [| p] using better_t_tree_ind. ? *)
+  apply better_t_tree_ind.
+  Show Proof.
+  - reflexivity.
+  - intros.
+    simpl. 
+    rewrite H. rewrite H0.
+    reflexivity.
+Qed.
 (** [] *)
 
 (* 2025-01-13 16:00 *)

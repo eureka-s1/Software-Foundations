@@ -15,7 +15,7 @@ R718:730 LF.IndPrinciples <> <> lib
 R740:744 LF.IndPrinciplesTest Check <> mod
 def 748:756 <> Unnamed_thm
 R753:756 Coq.Init.Logic <> True ind
-R900:910 LF.IndPrinciples <> plus_one_r' prfax
+R900:910 LF.IndPrinciples <> plus_one_r' thm
 R925:927 Coq.Init.Datatypes <> nat ind
 binder 921:921 <> n:2
 R935:937 Coq.Init.Logic <> ::type_scope:x_'='_x not
@@ -23,7 +23,7 @@ R931:933 LF.Basics <> ::nat_scope:x_'+'_x not
 R930:930 LF.IndPrinciplesTest <> n:2 var
 R938:938 Coq.Init.Datatypes <> S constr
 R940:940 LF.IndPrinciplesTest <> n:2 var
-R900:910 LF.IndPrinciples <> plus_one_r' prfax
+R900:910 LF.IndPrinciples <> plus_one_r' thm
 R925:927 Coq.Init.Datatypes <> nat ind
 binder 921:921 <> n:3
 R935:937 Coq.Init.Logic <> ::type_scope:x_'='_x not
@@ -31,16 +31,16 @@ R931:933 LF.Basics <> ::nat_scope:x_'+'_x not
 R930:930 LF.IndPrinciplesTest <> n:3 var
 R938:938 Coq.Init.Datatypes <> S constr
 R940:940 LF.IndPrinciplesTest <> n:3 var
-R992:1002 LF.IndPrinciples <> plus_one_r' prfax
+R992:1002 LF.IndPrinciples <> plus_one_r' thm
 def 1005:1013 <> Unnamed_thm
 R1010:1013 Coq.Init.Logic <> True ind
-R1183:1207 LF.IndPrinciples <> booltree_ind_type_correct prfax
-R1183:1207 LF.IndPrinciples <> booltree_ind_type_correct prfax
+R1183:1207 LF.IndPrinciples <> booltree_ind_type_correct thm
+R1183:1207 LF.IndPrinciples <> booltree_ind_type_correct thm
 R1210:1226 LF.IndPrinciples <> booltree_ind_type def
-R1277:1301 LF.IndPrinciples <> booltree_ind_type_correct prfax
+R1277:1301 LF.IndPrinciples <> booltree_ind_type_correct thm
 def 1304:1312 <> Unnamed_thm
 R1309:1312 Coq.Init.Logic <> True ind
-R1463:1473 LF.IndPrinciples <> Toy_correct prfax
+R1463:1473 LF.IndPrinciples <> Toy_correct thm
 R1478:1485 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
 R1525:1530 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
 R1494:1497 Coq.Init.Logic <> ::type_scope:x_'->'_x not
@@ -80,7 +80,7 @@ R1652:1654 LF.IndPrinciples <> Toy ind
 binder 1648:1648 <> t:10
 R1657:1657 LF.IndPrinciplesTest <> P:6 var
 R1659:1659 LF.IndPrinciplesTest <> t:10 var
-R1463:1473 LF.IndPrinciples <> Toy_correct prfax
+R1463:1473 LF.IndPrinciples <> Toy_correct thm
 R1478:1485 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
 R1525:1530 Coq.Init.Logic <> ::type_scope:'exists'_x_'..'_x_','_x not
 R1494:1497 Coq.Init.Logic <> ::type_scope:x_'->'_x not
@@ -120,9 +120,9 @@ R1652:1654 LF.IndPrinciples <> Toy ind
 binder 1648:1648 <> t:17
 R1657:1657 LF.IndPrinciplesTest <> P:13 var
 R1659:1659 LF.IndPrinciplesTest <> t:17 var
-R1711:1721 LF.IndPrinciples <> Toy_correct prfax
+R1711:1721 LF.IndPrinciples <> Toy_correct thm
 def 1724:1732 <> Unnamed_thm
 R1729:1732 Coq.Init.Logic <> True ind
-R2702:2712 LF.IndPrinciples <> plus_one_r' prfax
-R2789:2813 LF.IndPrinciples <> booltree_ind_type_correct prfax
-R2876:2886 LF.IndPrinciples <> Toy_correct prfax
+R2702:2712 LF.IndPrinciples <> plus_one_r' thm
+R2789:2813 LF.IndPrinciples <> booltree_ind_type_correct thm
+R2876:2886 LF.IndPrinciples <> Toy_correct thm

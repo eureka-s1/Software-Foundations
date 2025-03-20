@@ -1262,7 +1262,16 @@ Proof.
   - apply n_le_m__Sn_le_Sm.
   - apply Sn_le_Sm__n_le_m.
 Qed.
-  
+
+Check le_ind.
+
+Lemma le_trans' : forall m n o, m <= n -> n <= o -> m <= o.
+Proof.
+  intros n m o Hmn Hno.
+  induction Hno as [|o' Hno' IHno'].
+  - apply Hmn.
+  - apply le_S. apply IHno'.
+Qed.
 
 Lemma le_trans : forall m n o, m <= n -> n <= o -> m <= o.
 Proof.

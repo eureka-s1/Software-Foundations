@@ -617,21 +617,21 @@ R5546:5558 LF.IndProp <> le_plus_trans thm
 def 5561:5569 <> Unnamed_thm
 R5566:5569 Coq.Init.Logic <> True ind
 R5754:5785 LF.IndProp R manual_grade_for_R_provability def
-R5958:5968 LF.IndProp <> subseq_refl prfax
+R5958:5968 LF.IndProp <> subseq_refl thm
 R5983:5986 LF.Poly <> list ind
 R5988:5990 Coq.Init.Datatypes <> nat ind
 binder 5979:5979 <> l:88
 R5993:5998 LF.IndProp <> subseq ind
 R6000:6000 LF.IndPropTest <> l:88 var
 R6002:6002 LF.IndPropTest <> l:88 var
-R5958:5968 LF.IndProp <> subseq_refl prfax
+R5958:5968 LF.IndProp <> subseq_refl thm
 R5983:5986 LF.Poly <> list ind
 R5988:5990 Coq.Init.Datatypes <> nat ind
 binder 5979:5979 <> l:89
 R5993:5998 LF.IndProp <> subseq ind
 R6000:6000 LF.IndPropTest <> l:89 var
 R6002:6002 LF.IndPropTest <> l:89 var
-R6054:6064 LF.IndProp <> subseq_refl prfax
+R6054:6064 LF.IndProp <> subseq_refl thm
 def 6067:6075 <> Unnamed_thm
 R6072:6075 Coq.Init.Logic <> True ind
 R6171:6180 LF.IndProp <> subseq_app prfax
@@ -1206,7 +1206,7 @@ R12471:12490 LF.IndProp <> re_not_empty_correct prfax
 R12553:12563 LF.IndProp <> reflect_iff prfax
 R12628:12640 LF.IndProp <> eqbP_practice prfax
 R12807:12815 LF.IndProp <> ev_ev__ev thm
-R12878:12888 LF.IndProp <> subseq_refl prfax
+R12878:12888 LF.IndProp <> subseq_refl thm
 R12950:12959 LF.IndProp <> subseq_app prfax
 R13023:13034 LF.IndProp <> subseq_trans prfax
 R13106:13125 LF.IndProp Pumping weak_pumping prfax
