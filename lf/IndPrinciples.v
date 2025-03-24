@@ -988,14 +988,14 @@ Print t_tree_ind.
 Theorem reflect_involution : forall (X : Type) (t : t_tree X),
     reflect (reflect t) = t.
 Proof. 
-  intros X.
-  (* induction t as [| p] using better_t_tree_ind. ? *)
-  apply better_t_tree_ind.
+  intros X t.
+  induction t using (@better_t_tree_ind X).
+  (* or apply better_t_tree_ind. *)
   Show Proof.
   - reflexivity.
   - intros.
     simpl. 
-    rewrite H. rewrite H0.
+    rewrite IHt1. rewrite IHt2.
     reflexivity.
 Qed.
 (** [] *)

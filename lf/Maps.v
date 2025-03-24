@@ -188,7 +188,8 @@ Proof. reflexivity. Qed.
 Lemma t_apply_empty : forall (A : Type) (x : string) (v : A),
   (_ !-> v) x = v.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros. reflexivity.
+Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard, optional (t_update_eq)
@@ -200,7 +201,12 @@ Proof.
 Lemma t_update_eq : forall (A : Type) (m : total_map A) x v,
   (x !-> v ; m) x = v.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros. unfold t_update. 
+  destruct (String.eqb_spec x x).
+  - reflexivity.
+  - destruct n. reflexivity.  
+Qed.
+
 (** [] *)
 
 (** **** Exercise: 2 stars, standard, optional (t_update_neq)
@@ -213,7 +219,11 @@ Theorem t_update_neq : forall (A : Type) (m : total_map A) x1 x2 v,
   x1 <> x2 ->
   (x1 !-> v ; m) x2 = m x2.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros. unfold t_update.
+  destruct (String.eqb_spec x1 x2).
+  - destruct H. apply e.
+  - reflexivity.
+Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard, optional (t_update_shadow)
@@ -227,7 +237,19 @@ Proof.
 Lemma t_update_shadow : forall (A : Type) (m : total_map A) x v1 v2,
   (x !-> v2 ; x !-> v1 ; m) = (x !-> v2 ; m).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros. unfold t_update.
+  destruct (String.eqb_spec x x).
+  - apply functional_extensionality.
+    intros y.
+    destruct (String.eqb_spec x y).
+    + reflexivity.
+    + reflexivity.
+  - apply functional_extensionality.
+    intros y.
+    destruct (String.eqb_spec x y).
+    + reflexivity.
+    + reflexivity.
+Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard (t_update_same)
@@ -244,7 +266,19 @@ Proof.
 Theorem t_update_same : forall (A : Type) (m : total_map A) x,
   (x !-> m x ; m) = m.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros. unfold t_update.
+  destruct (String.eqb_spec x x).
+  - apply functional_extensionality.
+    intros y.
+    destruct (String.eqb_spec x y).
+    + rewrite e0. reflexivity.
+    + reflexivity.
+  - apply functional_extensionality.
+    intros y.
+    destruct (String.eqb_spec x y).
+    + rewrite e. reflexivity.
+    + reflexivity.
+Qed.
 (** [] *)
 
 (** **** Exercise: 3 stars, standard, especially useful (t_update_permute)
@@ -260,7 +294,17 @@ Theorem t_update_permute : forall (A : Type) (m : total_map A)
   =
   (x2 !-> v2 ; x1 !-> v1 ; m).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros. unfold t_update.
+  apply functional_extensionality.
+  intros y.
+  destruct (String.eqb_spec x1 y).
+  - destruct (String.eqb_spec x2 y).
+    + rewrite e0 in H. rewrite e in H. destruct H. reflexivity.
+    + reflexivity.
+  - destruct (String.eqb_spec x2 y).
+    + reflexivity.
+    + reflexivity.
+Qed.  
 (** [] *)
 
 (* ################################################################# *)

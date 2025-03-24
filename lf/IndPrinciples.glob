@@ -1,4 +1,4 @@
-DIGEST 3c1518b35be3f65a349a0b932d41de03
+DIGEST 9890558aca075edf816485821c2a4068
 FLF.IndPrinciples
 R433:444 LF.ProofObjects <> <> lib
 R630:633 Coq.Init.Logic <> ::type_scope:x_'->'_x not
@@ -814,5 +814,5 @@ R34574:34580 LF.IndPrinciples <> reflect def
 R34583:34589 LF.IndPrinciples <> reflect def
 R34591:34591 LF.IndPrinciples <> t:158 var
 R34596:34596 LF.IndPrinciples <> t:158 var
-R34683:34699 LF.IndPrinciples <> better_t_tree_ind def
-R34683:34699 LF.IndPrinciples <> better_t_tree_ind def
+R34643:34659 LF.IndPrinciples <> better_t_tree_ind def
+R34643:34659 LF.IndPrinciples <> better_t_tree_ind def
