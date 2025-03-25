@@ -1607,33 +1607,40 @@ Proof.
   - apply cons_in. apply IHl. 
 Qed.
 
-Lemma subseq_reduce : forall x (l1 l2 : list nat),
-  subseq (x :: l1) l2 -> subseq l1 l2.
-Proof.
-  intros.
-  apply cons_nin with (x:=x) in H.
-Abort.
-
-Lemma subseq_eq : forall x (l1 l2 : list nat), 
-  subseq l1 l2 <-> subseq (x :: l1) (x :: l2).
-Proof.
-  intros x l1 l2. split.
-  - intros H. apply cons_in. apply H.
-  - intros H.
-Abort.
-
-
 Theorem subseq_app : forall (l1 l2 l3 : list nat),
   subseq l1 l2 ->
   subseq l1 (l2 ++ l3).
-Proof. Admitted.
+Proof. 
+  intros. induction H.
+  + apply nil_s.
+  + apply cons_in with (l1 := l1) (l2 := l2 ++ l3).
+    apply IHsubseq.
+  + apply cons_nin with (l1 := l1) (l2 := l2 ++ l3).
+    apply IHsubseq.
+Qed.
 
 Theorem subseq_trans : forall (l1 l2 l3 : list nat),
   subseq l1 l2 ->
   subseq l2 l3 ->
   subseq l1 l3.
-Proof. Admitted.
-
+Proof. 
+  intros l1 l2 l3 H12 H23.
+  generalize dependent l1.
+  induction H23.
+  - intros. inversion H12. apply nil_s.
+  - intros. inversion H12.
+    + apply nil_s.
+    + apply cons_in.
+      apply IHsubseq.
+      apply H1.
+    + apply cons_nin.
+      apply IHsubseq.
+      apply H1.
+  - intros.
+    apply cons_nin.
+    apply IHsubseq.
+    apply H12.
+Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard, optional (R_provability2)
