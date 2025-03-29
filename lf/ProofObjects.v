@@ -1007,7 +1007,7 @@ Definition proof_irrelevance : Prop :=
 Theorem pe_implies_pi :
   propositional_extensionality -> proof_irrelevance.
 Proof. 
-  intros. intros P p1 p2.
+  intros H. intros P p1 p2.
   destruct (pe_implies_true_eq H P p1).
   destruct p1. destruct p2.
   apply eq_refl.

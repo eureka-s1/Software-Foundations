@@ -1,4 +1,4 @@
-DIGEST 1ab07723ba7164862ed171e3659b179d
+DIGEST 814bb3f2aef233c499c0ce38e7025bb1
 FLF.ProofObjects
 R159:165 LF.IndProp <> <> lib
 ind 1853:1854 <> ev
@@ -1006,7 +1006,7 @@ prf 35207:35219 <> pe_implies_pi
 R35253:35256 Coq.Init.Logic <> ::type_scope:x_'->'_x not
 R35225:35252 LF.ProofObjects <> propositional_extensionality def
 R35257:35273 LF.ProofObjects <> proof_irrelevance def
-R35322:35339 LF.ProofObjects <> pe_implies_true_eq thm
-R35322:35339 LF.ProofObjects <> pe_implies_true_eq thm
-R35386:35392 Coq.Init.Logic <> eq_refl constr
-R35386:35392 Coq.Init.Logic <> eq_refl constr
+R35324:35341 LF.ProofObjects <> pe_implies_true_eq thm
+R35324:35341 LF.ProofObjects <> pe_implies_true_eq thm
+R35388:35394 Coq.Init.Logic <> eq_refl constr
+R35388:35394 Coq.Init.Logic <> eq_refl constr

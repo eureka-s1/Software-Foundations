@@ -634,7 +634,7 @@ R6002:6002 LF.IndPropTest <> l:89 var
 R6054:6064 LF.IndProp <> subseq_refl thm
 def 6067:6075 <> Unnamed_thm
 R6072:6075 Coq.Init.Logic <> True ind
-R6171:6180 LF.IndProp <> subseq_app prfax
+R6171:6180 LF.IndProp <> subseq_app thm
 R6203:6206 LF.Poly <> list ind
 R6208:6210 Coq.Init.Datatypes <> nat ind
 binder 6192:6193 <> l1:90
@@ -649,7 +649,7 @@ R6236:6237 LF.IndPropTest <> l1:90 var
 R6242:6245 LF.Poly <> :::x_'++'_x not
 R6240:6241 LF.IndPropTest <> l2:91 var
 R6246:6247 LF.IndPropTest <> l3:92 var
-R6171:6180 LF.IndProp <> subseq_app prfax
+R6171:6180 LF.IndProp <> subseq_app thm
 R6203:6206 LF.Poly <> list ind
 R6208:6210 Coq.Init.Datatypes <> nat ind
 binder 6192:6193 <> l1:93
@@ -664,10 +664,10 @@ R6236:6237 LF.IndPropTest <> l1:93 var
 R6242:6245 LF.Poly <> :::x_'++'_x not
 R6240:6241 LF.IndPropTest <> l2:94 var
 R6246:6247 LF.IndPropTest <> l3:95 var
-R6300:6309 LF.IndProp <> subseq_app prfax
+R6300:6309 LF.IndProp <> subseq_app thm
 def 6312:6320 <> Unnamed_thm
 R6317:6320 Coq.Init.Logic <> True ind
-R6418:6429 LF.IndProp <> subseq_trans prfax
+R6418:6429 LF.IndProp <> subseq_trans thm
 R6452:6455 LF.Poly <> list ind
 R6457:6459 Coq.Init.Datatypes <> nat ind
 binder 6441:6442 <> l1:96
@@ -684,7 +684,7 @@ R6488:6489 LF.IndPropTest <> l3:98 var
 R6494:6499 LF.IndProp <> subseq ind
 R6501:6502 LF.IndPropTest <> l1:96 var
 R6504:6505 LF.IndPropTest <> l3:98 var
-R6418:6429 LF.IndProp <> subseq_trans prfax
+R6418:6429 LF.IndProp <> subseq_trans thm
 R6452:6455 LF.Poly <> list ind
 R6457:6459 Coq.Init.Datatypes <> nat ind
 binder 6441:6442 <> l1:99
@@ -701,7 +701,7 @@ R6488:6489 LF.IndPropTest <> l3:101 var
 R6494:6499 LF.IndProp <> subseq ind
 R6501:6502 LF.IndPropTest <> l1:99 var
 R6504:6505 LF.IndPropTest <> l3:101 var
-R6557:6568 LF.IndProp <> subseq_trans prfax
+R6557:6568 LF.IndProp <> subseq_trans thm
 def 6571:6579 <> Unnamed_thm
 R6576:6579 Coq.Init.Logic <> True ind
 R6744:6760 LF.IndProp <> EmptySet_is_empty prfax
@@ -1207,7 +1207,7 @@ R12553:12563 LF.IndProp <> reflect_iff prfax
 R12628:12640 LF.IndProp <> eqbP_practice prfax
 R12807:12815 LF.IndProp <> ev_ev__ev thm
 R12878:12888 LF.IndProp <> subseq_refl thm
-R12950:12959 LF.IndProp <> subseq_app prfax
-R13023:13034 LF.IndProp <> subseq_trans prfax
+R12950:12959 LF.IndProp <> subseq_app thm
+R13023:13034 LF.IndProp <> subseq_trans thm
 R13106:13125 LF.IndProp Pumping weak_pumping prfax
 R13189:13200 LF.IndProp <> merge_filter prfax
