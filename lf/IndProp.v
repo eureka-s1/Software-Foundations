@@ -3328,7 +3328,21 @@ Lemma app_ne : forall (a : ascii) s re0 re1,
   ([ ] =~ re0 /\ a :: s =~ re1) \/
   exists s0 s1, s = s0 ++ s1 /\ a :: s0 =~ re0 /\ s1 =~ re1.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros. split.
+  - intros. inversion H. destruct s1.
+    + auto.
+    + right. injection H1 as Heq. subst. 
+      exists s1, s2. split.
+      * reflexivity.
+      * split. apply H3. apply H4.
+  - intros. destruct H.
+    + destruct H as [Hnil Hmat].
+      replace (a :: s) with ([] ++ a::s).
+      apply MApp. apply Hnil. apply Hmat.
+      reflexivity.
+    + destruct H as [ s0 [ s1 [ Happ [ Hmat0 Hmat1 ] ] ] ].
+      rewrite Happ. apply (MApp (a :: s0) _ s1 _ Hmat0 Hmat1).
+Qed.
 (** [] *)
 
 (** [s] matches [Union re0 re1] iff [s] matches [re0] or [s] matches [re1]. *)
@@ -3364,7 +3378,19 @@ Lemma star_ne : forall (a : ascii) s re,
   a :: s =~ Star re <->
   exists s0 s1, s = s0 ++ s1 /\ a :: s0 =~ re /\ s1 =~ Star re.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros. split; intros.
+  - remember (Star re) as re'.
+    remember (a :: s) as s'.
+    induction H; subst; try discriminate;
+    try (injection Heqre' as Heq); subst.
+    destruct s1.
+    * simpl in *. 
+      apply (IHexp_match2 (eq_refl (Star re)) Heqs').
+    * injection Heqs' as Heqs. subst.
+      exists s1, s2. auto.
+  - destruct H as [s0 [s1 [Happ [Hmat0 Hmat1]]]].
+    rewrite Happ. apply (MStarApp (a::s0) s1 _ Hmat0 Hmat1).
+Qed.
 (** [] *)
 
 (** The definition of our regex matcher will include two fixpoint
@@ -3378,8 +3404,15 @@ Definition refl_matches_eps m :=
 
     Complete the definition of [match_eps] so that it tests if a given
     regex matches the empty string: *)
-Fixpoint match_eps (re: reg_exp ascii) : bool
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Fixpoint match_eps (re: reg_exp ascii) : bool := 
+  match re with
+  | EmptySet => false
+  | EmptyStr => true
+  | Char _ => false
+  | App re0 re1 => match_eps re0 && match_eps re1
+  | Star re => true
+  | Union re0 re1 => match_eps re0 || match_eps re1
+  end.
 (** [] *)
 
 (** **** Exercise: 3 stars, standard, optional (match_eps_refl)
@@ -3389,7 +3422,29 @@ Fixpoint match_eps (re: reg_exp ascii) : bool
     [ReflectT] and [ReflectF].) *)
 Lemma match_eps_refl : refl_matches_eps match_eps.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  unfold refl_matches_eps. intros re.
+  destruct (match_eps re) eqn:E.
+  - apply ReflectT. induction re; simpl in *; try discriminate.
+    + apply MEmpty.
+    + apply andb_true_iff in E as [E1 E2].
+      apply MApp with (s1:= [ ]). apply (IHre1 E1). apply (IHre2 E2).
+    + apply orb_true_iff in E as  [E | E].
+      * apply MUnionL. apply (IHre1 E).
+      * apply MUnionR. apply (IHre2 E).
+    + apply MStar0. 
+  - apply ReflectF. induction re; simpl in *; try discriminate;
+    unfold not in *; intros; try inversion H.
+    + subst.
+      destruct s1; destruct s2; simpl in *; try discriminate.
+      destruct (match_eps re1); destruct (match_eps re2); simpl in *; try discriminate.
+      apply (IHre2 (eq_refl false) H4).
+      apply (IHre1 (eq_refl false) H3).
+      apply (IHre1 (eq_refl false) H3).
+    + destruct (match_eps re1); destruct (match_eps re2); simpl in *; try discriminate.
+      apply (IHre1 (eq_refl false) H2).
+    + destruct (match_eps re1); destruct (match_eps re2); simpl in *; try discriminate.
+      apply (IHre2 (eq_refl false) H1).
+Qed.  
 (** [] *)
 
 (** We'll define other functions that use [match_eps]. However, the
@@ -3416,8 +3471,17 @@ Definition derives d := forall a re, is_der re a (d a re).
     Define [derive] so that it derives strings. One natural
     implementation uses [match_eps] in some cases to determine if key
     regex's match the empty string. *)
-Fixpoint derive (a : ascii) (re : reg_exp ascii) : reg_exp ascii
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Fixpoint derive (a : ascii) (re : reg_exp ascii) : reg_exp ascii :=
+  match re with
+  | EmptySet => EmptySet
+  | EmptyStr => EmptySet
+  | Char x => if eqb x a then EmptyStr else EmptySet
+  | App re1 re2 => if match_eps re1
+                     then Union (derive a re2) (App (derive a re1) re2)
+                     else App (derive a re1) re2  
+  | Union re0 re1 => Union (derive a re0) (derive a re1)
+  | Star re => App (derive a re) (Star re)
+  end.
 (** [] *)
 
 (** The [derive] function should pass the following tests. Each test
@@ -3430,45 +3494,37 @@ Example d := ascii_of_nat 100.
 
 (** "c" =~ EmptySet: *)
 Example test_der0 : match_eps (derive c (EmptySet)) = false.
-Proof.
-  (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
 
 (** "c" =~ Char c: *)
 Example test_der1 : match_eps (derive c (Char c)) = true.
-Proof.
-  (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
 
 (** "c" =~ Char d: *)
 Example test_der2 : match_eps (derive c (Char d)) = false.
-Proof.
-  (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
 
 (** "c" =~ App (Char c) EmptyStr: *)
 Example test_der3 : match_eps (derive c (App (Char c) EmptyStr)) = true.
-Proof.
-  (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
 
 (** "c" =~ App EmptyStr (Char c): *)
 Example test_der4 : match_eps (derive c (App EmptyStr (Char c))) = true.
-Proof.
-  (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
 
 (** "c" =~ Star c: *)
 Example test_der5 : match_eps (derive c (Star (Char c))) = true.
-Proof.
-  (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
 
 (** "cd" =~ App (Char c) (Char d): *)
 Example test_der6 :
   match_eps (derive d (derive c (App (Char c) (Char d)))) = true.
-Proof.
-  (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
 
 (** "cd" =~ App (Char d) (Char c): *)
 Example test_der7 :
   match_eps (derive d (derive c (App (Char d) (Char c)))) = false.
-Proof.
-  (* FILL IN HERE *) Admitted.
+Proof. reflexivity. Qed.
 
 (** **** Exercise: 4 stars, standard, optional (derive_corr)
 
@@ -3493,7 +3549,54 @@ Proof.
     [Prop]'s naturally using [intro] and [destruct]. *)
 Lemma derive_corr : derives derive.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros a re s.
+  split.
+  - generalize dependent s. induction re;
+    simpl in *; try discriminate; intros.
+    + inversion H.
+    + inversion H.
+    (* inversion causes auto simplification failed*)
+    + destruct (eqb_spec t a) as [HEq | HnEq]; subst.
+      * apply char_eps_suffix in H. rewrite H. apply MEmpty.
+      * inversion H. apply eq_sym in H3. contradiction.
+    + destruct (match_eps_refl re1).
+      * rewrite app_ne in H. destruct H.
+        { destruct H as [Hre1 Has]. 
+          apply MUnionL. apply (IHre2 s Has). }
+        { destruct H as [s0 [s1 [Happ [Hmat0 Hmat1]]]].
+          apply MUnionR. rewrite Happ. apply MApp.
+          apply (IHre1 s0 Hmat0). apply Hmat1. }
+      * rewrite app_ne in H. destruct H.
+        { destruct H as [Hre1 Has]. contradiction. }
+        { destruct H as [s0 [s1 [Happ [Hmat0 Hmat1]]]].
+          rewrite Happ. apply MApp.
+          apply (IHre1 s0 Hmat0). apply Hmat1.  }
+    + rewrite union_disj in H. destruct H.
+      * apply MUnionL. apply (IHre1 s H).
+      * apply MUnionR. apply (IHre2 s H).
+    + rewrite star_ne in H. destruct H as [s0 [s1 [Happ [Hmat0 Hmat1]]]].
+      rewrite Happ. apply MApp.
+      apply (IHre s0 Hmat0). apply Hmat1.
+  - generalize dependent s. induction re;
+    simpl in *; try discriminate; intros.
+    + inversion H.
+    + inversion H.
+    + destruct (eqb_spec t a) as [HEq | HnEq]; subst.
+      * inversion H. apply MChar. 
+      * inversion H.
+    + destruct (match_eps_refl re1).
+      * rewrite union_disj in H. destruct H.
+        { apply MApp with (s1:= [ ]). apply H0. apply (IHre2 s H). }
+        { rewrite app_exists in H. destruct H as [s0 [s1 [Happ [Hmat0 Hmat1]]]].
+          rewrite Happ. apply (MApp (a::s0) _ s1 _ (IHre1 s0 Hmat0) Hmat1). }
+      * rewrite app_exists in H. destruct H as [s0 [s1 [Happ [Hmat0 Hmat1]]]].
+        rewrite Happ. apply (MApp (a::s0) _ s1 _ (IHre1 s0 Hmat0) Hmat1).
+    + rewrite union_disj in H. destruct H.
+      * apply MUnionL. apply (IHre1 s H).
+      * apply MUnionR. apply (IHre2 s H).
+    + rewrite app_exists in H. destruct H as [s0 [s1 [Happ [Hmat0 Hmat1]]]].
+      rewrite Happ. apply (MStarApp (a::s0) s1 _ (IHre s0 Hmat0) Hmat1).
+Qed.
 (** [] *)
 
 (** We'll define the regex matcher using [derive]. However, the only
@@ -3510,8 +3613,11 @@ Definition matches_regex m : Prop :=
 
     Complete the definition of [regex_match] so that it matches
     regexes. *)
-Fixpoint regex_match (s : string) (re : reg_exp ascii) : bool
-  (* REPLACE THIS LINE WITH ":= _your_definition_ ." *). Admitted.
+Fixpoint regex_match (s : string) (re : reg_exp ascii) : bool := 
+  match s with
+    | (a :: s) => regex_match s (derive a re)
+    | [] => match_eps re
+    end.
 (** [] *)
 
 (** **** Exercise: 3 stars, standard, optional (regex_match_correct)
@@ -3529,7 +3635,14 @@ Fixpoint regex_match (s : string) (re : reg_exp ascii) : bool
     [s =~ derive x re], and vice versa. *)
 Theorem regex_match_correct : matches_regex regex_match.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros s.
+  induction s; intros; simpl in *.
+  - apply match_eps_refl.
+  - destruct (IHs (derive x re)) as [Htrue | Hfalse].
+    + apply ReflectT. apply (derive_corr x re s). apply Htrue.
+    + apply ReflectF. intros contra. apply Hfalse. 
+      apply (derive_corr x re s). apply contra.
+Qed.
 (** [] *)
 
 (* 2025-01-13 16:19 *)
