@@ -1,0 +1,106 @@
+DIGEST 2401946fc66adbe199f9b9877de22acb
+FPLF.TypecheckingTest
+R70:75 Coq.Strings.String <> <> lib
+R102:113 PLF.Typechecking <> <> lib
+ax 127:133 <> MISSING
+mod 150:154 <> Check
+R220:226 PLF.TypecheckingTest <> MISSING defax
+R220:226 PLF.TypecheckingTest <> MISSING defax
+R419:422 Coq.Init.Datatypes <> Some constr
+R419:422 Coq.Init.Datatypes <> Some constr
+R602:605 Coq.Init.Datatypes <> None constr
+R602:605 Coq.Init.Datatypes <> None constr
+R687:691 PLF.TypecheckingTest Check <> mod
+R719:730 PLF.Typechecking <> <> lib
+R740:744 PLF.TypecheckingTest Check <> mod
+def 748:756 <> Unnamed_thm
+R753:756 Coq.Init.Logic <> True ind
+R954:1007 PLF.Typechecking TypecheckerExtensions manual_grade_for_type_check_defn def
+R1204:1244 PLF.Typechecking TypecheckerExtensions type_checking_sound prfax
+R1265:1293 PLF.MoreStlc STLCExtended context def
+binder 1257:1261 <> Gamma:2
+R1304:1327 PLF.MoreStlc STLCExtended tm ind
+binder 1300:1300 <> t:3
+R1335:1358 PLF.MoreStlc STLCExtended ty ind
+binder 1331:1331 <> T:4
+R1370:1371 Coq.Init.Logic <> eq ind
+R1374:1379 Coq.Init.Datatypes <> option ind
+R1381:1404 PLF.MoreStlc STLCExtended ty ind
+R1418:1449 PLF.Typechecking TypecheckerExtensions type_check def
+R1451:1455 PLF.TypecheckingTest <> Gamma:2 var
+R1457:1457 PLF.TypecheckingTest <> t:3 var
+R1472:1475 Coq.Init.Datatypes <> Some constr
+R1477:1500 PLF.MoreStlc STLCExtended ty ind
+R1502:1502 PLF.TypecheckingTest <> T:4 var
+R1508:1537 PLF.MoreStlc STLCExtended has_type ind
+R1539:1543 PLF.TypecheckingTest <> Gamma:2 var
+R1545:1545 PLF.TypecheckingTest <> t:3 var
+R1547:1547 PLF.TypecheckingTest <> T:4 var
+R1204:1244 PLF.Typechecking TypecheckerExtensions type_checking_sound prfax
+R1265:1293 PLF.MoreStlc STLCExtended context def
+binder 1257:1261 <> Gamma:5
+R1304:1327 PLF.MoreStlc STLCExtended tm ind
+binder 1300:1300 <> t:6
+R1335:1358 PLF.MoreStlc STLCExtended ty ind
+binder 1331:1331 <> T:7
+R1370:1371 Coq.Init.Logic <> eq ind
+R1374:1379 Coq.Init.Datatypes <> option ind
+R1381:1404 PLF.MoreStlc STLCExtended ty ind
+R1418:1449 PLF.Typechecking TypecheckerExtensions type_check def
+R1451:1455 PLF.TypecheckingTest <> Gamma:5 var
+R1457:1457 PLF.TypecheckingTest <> t:6 var
+R1472:1475 Coq.Init.Datatypes <> Some constr
+R1477:1500 PLF.MoreStlc STLCExtended ty ind
+R1502:1502 PLF.TypecheckingTest <> T:7 var
+R1508:1537 PLF.MoreStlc STLCExtended has_type ind
+R1539:1543 PLF.TypecheckingTest <> Gamma:5 var
+R1545:1545 PLF.TypecheckingTest <> t:6 var
+R1547:1547 PLF.TypecheckingTest <> T:7 var
+R1599:1639 PLF.Typechecking TypecheckerExtensions type_checking_sound prfax
+def 1642:1650 <> Unnamed_thm
+R1647:1650 Coq.Init.Logic <> True ind
+R1853:1896 PLF.Typechecking TypecheckerExtensions type_checking_complete prfax
+R1917:1945 PLF.MoreStlc STLCExtended context def
+binder 1909:1913 <> Gamma:8
+R1956:1979 PLF.MoreStlc STLCExtended tm ind
+binder 1952:1952 <> t:9
+R1987:2010 PLF.MoreStlc STLCExtended ty ind
+binder 1983:1983 <> T:10
+R2021:2050 PLF.MoreStlc STLCExtended has_type ind
+R2052:2056 PLF.TypecheckingTest <> Gamma:8 var
+R2058:2058 PLF.TypecheckingTest <> t:9 var
+R2060:2060 PLF.TypecheckingTest <> T:10 var
+R2066:2067 Coq.Init.Logic <> eq ind
+R2070:2075 Coq.Init.Datatypes <> option ind
+R2077:2100 PLF.MoreStlc STLCExtended ty ind
+R2107:2138 PLF.Typechecking TypecheckerExtensions type_check def
+R2140:2144 PLF.TypecheckingTest <> Gamma:8 var
+R2146:2146 PLF.TypecheckingTest <> t:9 var
+R2154:2157 Coq.Init.Datatypes <> Some constr
+R2159:2182 PLF.MoreStlc STLCExtended ty ind
+R2184:2184 PLF.TypecheckingTest <> T:10 var
+R1853:1896 PLF.Typechecking TypecheckerExtensions type_checking_complete prfax
+R1917:1945 PLF.MoreStlc STLCExtended context def
+binder 1909:1913 <> Gamma:11
+R1956:1979 PLF.MoreStlc STLCExtended tm ind
+binder 1952:1952 <> t:12
+R1987:2010 PLF.MoreStlc STLCExtended ty ind
+binder 1983:1983 <> T:13
+R2021:2050 PLF.MoreStlc STLCExtended has_type ind
+R2052:2056 PLF.TypecheckingTest <> Gamma:11 var
+R2058:2058 PLF.TypecheckingTest <> t:12 var
+R2060:2060 PLF.TypecheckingTest <> T:13 var
+R2066:2067 Coq.Init.Logic <> eq ind
+R2070:2075 Coq.Init.Datatypes <> option ind
+R2077:2100 PLF.MoreStlc STLCExtended ty ind
+R2107:2138 PLF.Typechecking TypecheckerExtensions type_check def
+R2140:2144 PLF.TypecheckingTest <> Gamma:11 var
+R2146:2146 PLF.TypecheckingTest <> t:12 var
+R2154:2157 Coq.Init.Datatypes <> Some constr
+R2159:2182 PLF.MoreStlc STLCExtended ty ind
+R2184:2184 PLF.TypecheckingTest <> T:13 var
+R2237:2280 PLF.Typechecking TypecheckerExtensions type_checking_complete prfax
+def 2283:2291 <> Unnamed_thm
+R2288:2291 Coq.Init.Logic <> True ind
+R3336:3376 PLF.Typechecking TypecheckerExtensions type_checking_sound prfax
+R3472:3515 PLF.Typechecking TypecheckerExtensions type_checking_complete prfax

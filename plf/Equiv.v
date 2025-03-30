@@ -186,7 +186,17 @@ Theorem skip_right : forall c,
     <{ c ; skip }>
     c.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros c st st'.
+  split; intros H.
+  - (* -> *)
+    inversion H. subst.
+    inversion H5. subst. 
+    assumption.
+  - (* <- *)
+    apply E_Seq with st'.
+    + assumption.
+    + apply E_Skip.
+Qed.
 (** [] *)
 
 (** Similarly, here is a simple equivalence that optimizes [if]
@@ -278,7 +288,20 @@ Theorem if_false : forall b c1 c2,
     <{ if b then c1 else c2 end }>
     c2.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros b c1 c2 Hb.
+  split; intros H.
+  - (* -> *)
+    inversion H; subst.
+    + (* b evaluates to true (contradiction) *)
+      unfold bequiv in Hb. simpl in Hb.
+      rewrite Hb in H5.
+      discriminate.
+    + (* b evaluates to false *)
+      assumption.
+  - (* <- *)
+    apply E_IfFalse; try assumption.
+    unfold bequiv in Hb. simpl in Hb.
+    apply Hb. Qed.
 (** [] *)
 
 (** **** Exercise: 3 stars, standard (swap_if_branches)
@@ -291,7 +314,33 @@ Theorem swap_if_branches : forall b c1 c2,
     <{ if b then c1 else c2 end }>
     <{ if ~ b then c2 else c1 end }>.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros b c1 c2 st st'.
+  destruct (beval st b) eqn:E.
+  - (* b = true *)
+    split; intros H.
+    + inversion H; subst.
+      * apply E_IfFalse. 
+        { simpl. rewrite H5. reflexivity. }
+        { assumption. }
+      * rewrite E in H5. discriminate.
+    + inversion H; subst.
+      * simpl in H5. rewrite E in H5. discriminate.
+      * apply E_IfTrue.
+        { assumption. }
+        { assumption. }
+  - (* b = false *)
+    split; intros H.
+    + inversion H; subst.
+      * rewrite E in H5. discriminate.
+      * apply E_IfTrue.
+        { simpl. rewrite E. reflexivity. }
+        { assumption. }
+    + inversion H; subst.
+      * apply E_IfFalse.
+        { assumption. }
+        { assumption. }
+      * simpl in H5. rewrite E in H5. discriminate.
+Qed.
 (** [] *)
 
 (** For [while] loops, we can give a similar pair of theorems.  A loop
@@ -394,7 +443,23 @@ Theorem while_true : forall b c,
     <{ while b do c end }>
     <{ while true do skip end }>.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros b c Hb. unfold bequiv in Hb.
+  split; intros H.
+  - (* -> *)
+    inversion H; subst.
+    + (* E_WhileFalse *)
+      rewrite (Hb st') in H4. discriminate.
+    + (* E_WhileTrue *)
+      remember (while_true_nonterm b c st st' Hb) as Hnonterm.
+      contradiction.
+  - (* <- *)
+    inversion H; subst.
+    + remember (loop_never_stops st' st') as Hnonterm.
+      contradiction.
+    + inversion H3. subst.
+      remember (loop_never_stops st'0 st') as Hnonterm.
+      contradiction.
+Qed.
 (** [] *)
 
 (** A more interesting fact about [while] commands is that any number
@@ -438,7 +503,24 @@ Proof.
 Theorem seq_assoc : forall c1 c2 c3,
   cequiv <{(c1;c2);c3}> <{c1;(c2;c3)}>.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros c1 c2 c3 st st'.
+  split; intros H.
+  - (* -> *)
+    inversion H; subst.
+    inversion H2. subst.
+    apply E_Seq with st'1.
+    + assumption.
+    + apply E_Seq with st'0.
+      * assumption.
+      * assumption.
+  - (* <- *)
+    inversion H; subst.
+    inversion H5; subst.
+    apply E_Seq with st'1.
+    + apply E_Seq with st'0.
+      * assumption.
+      * assumption.
+    + assumption.  Qed.
 (** [] *)
 
 (** Proving program properties involving assignments is one place
@@ -467,7 +549,21 @@ Theorem assign_aequiv : forall (X : string) (a : aexp),
   aequiv <{ X }> a ->
   cequiv <{ skip }> <{ X := a }>.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros X a H.
+  split; intro Hce.
+  - (* -> *)
+    inversion Hce; subst.
+    unfold aequiv in H. simpl in H.
+    assert (Hx : st' =[ X := a ]=> (X !-> aeval st' a ; st')).
+    { apply E_Asgn. reflexivity. }
+    rewrite <- (H st') in Hx.
+    rewrite t_update_same in Hx.
+    assumption.
+  - (* <- *)
+    inversion Hce; subst.
+    rewrite <- (H st).
+    simpl. rewrite t_update_same. constructor.
+Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard (equiv_classes) *)
