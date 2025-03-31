@@ -1685,8 +1685,13 @@ Proof.
       [loopdef] terminates.  Most of the cases are immediately
       contradictory and so can be solved in one step with
       [discriminate]. *)
-
-  (* FILL IN HERE *) Admitted.
+  induction contra;
+  subst;
+  try discriminate.
+  - injection Heqloopdef as Eb Ec.
+    subst. discriminate.
+  - apply IHcontra2. apply Heqloopdef.
+Qed. 
 (** [] *)
 
 (** **** Exercise: 3 stars, standard (no_whiles_eqv)

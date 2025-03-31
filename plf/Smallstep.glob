@@ -2831,9 +2831,9 @@ R59364:59369 PLF.Smallstep <> BS_Eq1 constr
 R59364:59369 PLF.Smallstep <> BS_Eq1 constr
 R59378:59382 PLF.Smallstep <> AS_Id constr
 R59378:59382 PLF.Smallstep <> AS_Id constr
-R59410:59420 PLF.Maps <> t_update_eq prfax
-R59410:59420 PLF.Maps <> t_update_eq prfax
-R59410:59420 PLF.Maps <> t_update_eq prfax
+R59410:59420 PLF.Maps <> t_update_eq thm
+R59410:59420 PLF.Maps <> t_update_eq thm
+R59410:59420 PLF.Maps <> t_update_eq thm
 R59447:59456 PLF.Smallstep <> multi_step constr
 R59447:59456 PLF.Smallstep <> multi_step constr
 R59486:59492 PLF.Smallstep CImp CS_Par2 constr
@@ -2854,10 +2854,10 @@ R59730:59739 PLF.Smallstep CImp CS_ParDone constr
 R59730:59739 PLF.Smallstep CImp CS_ParDone constr
 R59777:59786 PLF.Smallstep <> multi_refl constr
 R59777:59786 PLF.Smallstep <> multi_refl constr
-R59803:59814 PLF.Maps <> t_update_neq prfax
-R59803:59814 PLF.Maps <> t_update_neq prfax
-R59803:59814 PLF.Maps <> t_update_neq prfax
-R59803:59814 PLF.Maps <> t_update_neq prfax
+R59803:59814 PLF.Maps <> t_update_neq thm
+R59803:59814 PLF.Maps <> t_update_neq thm
+R59803:59814 PLF.Maps <> t_update_neq thm
+R59803:59814 PLF.Maps <> t_update_neq thm
 R59877:59880 PLF.Smallstep CImp <> mod
 def 60138:60142 <> stack
 R60147:60150 Coq.Init.Datatypes <> list ind

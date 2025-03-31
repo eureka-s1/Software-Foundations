@@ -186,7 +186,7 @@ R2661:2661 PLF.Imp <> Z def
 R2716:2729 PLF.Imp <> ceval_example2 prfax
 def 2732:2740 <> Unnamed_thm
 R2737:2740 Coq.Init.Logic <> True ind
-R2905:2920 PLF.Imp <> loop_never_stops prfax
+R2905:2920 PLF.Imp <> loop_never_stops thm
 R2940:2944 PLF.Imp <> state def
 binder 2931:2932 <> st:8
 binder 2934:2936 <> st':9
@@ -195,7 +195,7 @@ R2952:2956 PLF.Imp <> ceval ind
 R2958:2961 PLF.Imp <> loop def
 R2963:2964 PLF.ImpTest <> st:8 var
 R2966:2968 PLF.ImpTest <> st':9 var
-R2905:2920 PLF.Imp <> loop_never_stops prfax
+R2905:2920 PLF.Imp <> loop_never_stops thm
 R2940:2944 PLF.Imp <> state def
 binder 2931:2932 <> st:10
 binder 2934:2936 <> st':11
@@ -204,7 +204,7 @@ R2952:2956 PLF.Imp <> ceval ind
 R2958:2961 PLF.Imp <> loop def
 R2963:2964 PLF.ImpTest <> st:10 var
 R2966:2968 PLF.ImpTest <> st':11 var
-R3021:3036 PLF.Imp <> loop_never_stops prfax
+R3021:3036 PLF.Imp <> loop_never_stops thm
 def 3039:3047 <> Unnamed_thm
 R3044:3047 Coq.Init.Logic <> True ind
 R3206:3218 PLF.Imp <> no_whiles_eqv prfax
@@ -821,7 +821,7 @@ R9231:9257 PLF.Imp AExp optimize_0plus_b_test2 prfax
 R9336:9362 PLF.Imp AExp optimize_0plus_b_sound prfax
 R9435:9455 PLF.Imp AExp bevalR_iff_beval prfax
 R9521:9534 PLF.Imp <> ceval_example2 prfax
-R9602:9617 PLF.Imp <> loop_never_stops prfax
+R9602:9617 PLF.Imp <> loop_never_stops thm
 R9682:9694 PLF.Imp <> no_whiles_eqv prfax
 R9824:9833 PLF.Imp <> s_execute1 prfax
 R9895:9904 PLF.Imp <> s_execute2 prfax

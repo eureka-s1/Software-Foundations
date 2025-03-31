@@ -4378,8 +4378,8 @@ R55907:55921 PLF.PE <> pe_bexp_correct thm
 R55907:55921 PLF.PE <> pe_bexp_correct thm
 R56022:56038 PLF.PE Loop ceval_count_sound thm
 R56022:56038 PLF.PE Loop ceval_count_sound thm
-R56093:56108 PLF.Imp <> loop_never_stops prfax
-R56093:56108 PLF.Imp <> loop_never_stops prfax
+R56093:56108 PLF.Imp <> loop_never_stops thm
+R56093:56108 PLF.Imp <> loop_never_stops thm
 R56210:56211 PLF.Imp <> ::com_scope:'<{'_x_'}>' not
 R56250:56251 PLF.Imp <> ::com_scope:'<{'_x_'}>' not
 R56212:56217 PLF.Imp <> :com:com_scope:'while'_x_'do'_x_'end' not
@@ -4708,9 +4708,9 @@ R61565:61570 PLF.PE <> E_None constr
 R61565:61570 PLF.PE <> E_None constr
 R61594:61618 Coq.Logic.FunctionalExtensionality <> functional_extensionality thm
 R61594:61618 Coq.Logic.FunctionalExtensionality <> functional_extensionality thm
-R61639:61651 PLF.Maps <> t_update_same prfax
-R61639:61651 PLF.Maps <> t_update_same prfax
-R61639:61651 PLF.Maps <> t_update_same prfax
+R61639:61651 PLF.Maps <> t_update_same thm
+R61639:61651 PLF.Maps <> t_update_same thm
+R61639:61651 PLF.Maps <> t_update_same thm
 def 62339:62346 <> pe_block
 binder 62349:62349 <> L:440
 R62364:62371 PLF.PE <> pe_state def

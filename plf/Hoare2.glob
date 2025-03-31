@@ -63,8 +63,8 @@ R14029:14038 PLF.Hoare <> bassertion def
 R14053:14057 PLF.Imp <> beval def
 R14072:14076 PLF.Imp <> aeval def
 R14093:14105 PLF.Hoare <> assertion_sub def
-R14194:14205 PLF.Maps <> t_update_neq prfax
-R14156:14166 PLF.Maps <> t_update_eq prfax
+R14194:14205 PLF.Maps <> t_update_neq thm
+R14156:14166 PLF.Maps <> t_update_eq thm
 R14299:14302 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
 R14299:14302 Coq.Init.Logic <> ::type_scope:x_'/\'_x not
 R14372:14389 Coq.Bool.Bool <> not_true_iff_false thm
