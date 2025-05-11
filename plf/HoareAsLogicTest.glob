@@ -15,7 +15,7 @@ R719:730 PLF.HoareAsLogic <> <> lib
 R740:744 PLF.HoareAsLogicTest Check <> mod
 def 748:756 <> Unnamed_thm
 R753:756 Coq.Init.Logic <> True ind
-R914:931 PLF.HoareAsLogic <> provable_true_post prfax
+R914:931 PLF.HoareAsLogic <> provable_true_post thm
 R948:954 PLF.Imp <> com ind
 binder 944:944 <> c:2
 R962:976 PLF.Hoare <> Assertion def
@@ -25,7 +25,7 @@ R991:991 PLF.HoareAsLogicTest <> P:3 var
 R993:993 PLF.HoareAsLogicTest <> c:2 var
 R996:1015 PLF.Hoare <> assert_of_Prop def
 R1017:1020 Coq.Init.Logic <> True ind
-R914:931 PLF.HoareAsLogic <> provable_true_post prfax
+R914:931 PLF.HoareAsLogic <> provable_true_post thm
 R948:954 PLF.Imp <> com ind
 binder 944:944 <> c:4
 R962:976 PLF.Hoare <> Assertion def
@@ -35,10 +35,10 @@ R991:991 PLF.HoareAsLogicTest <> P:5 var
 R993:993 PLF.HoareAsLogicTest <> c:4 var
 R996:1015 PLF.Hoare <> assert_of_Prop def
 R1017:1020 Coq.Init.Logic <> True ind
-R1073:1090 PLF.HoareAsLogic <> provable_true_post prfax
+R1073:1090 PLF.HoareAsLogic <> provable_true_post thm
 def 1093:1101 <> Unnamed_thm
 R1098:1101 Coq.Init.Logic <> True ind
-R1270:1287 PLF.HoareAsLogic <> provable_false_pre prfax
+R1270:1287 PLF.HoareAsLogic <> provable_false_pre thm
 R1304:1310 PLF.Imp <> com ind
 binder 1300:1300 <> c:6
 R1318:1332 PLF.Hoare <> Assertion def
@@ -48,7 +48,7 @@ R1348:1367 PLF.Hoare <> assert_of_Prop def
 R1369:1373 Coq.Init.Logic <> False ind
 R1376:1376 PLF.HoareAsLogicTest <> c:6 var
 R1378:1378 PLF.HoareAsLogicTest <> Q:7 var
-R1270:1287 PLF.HoareAsLogic <> provable_false_pre prfax
+R1270:1287 PLF.HoareAsLogic <> provable_false_pre thm
 R1304:1310 PLF.Imp <> com ind
 binder 1300:1300 <> c:8
 R1318:1332 PLF.Hoare <> Assertion def
@@ -58,10 +58,10 @@ R1348:1367 PLF.Hoare <> assert_of_Prop def
 R1369:1373 Coq.Init.Logic <> False ind
 R1376:1376 PLF.HoareAsLogicTest <> c:8 var
 R1378:1378 PLF.HoareAsLogicTest <> Q:9 var
-R1430:1447 PLF.HoareAsLogic <> provable_false_pre prfax
+R1430:1447 PLF.HoareAsLogic <> provable_false_pre thm
 def 1450:1458 <> Unnamed_thm
 R1455:1458 Coq.Init.Logic <> True ind
-R1613:1623 PLF.HoareAsLogic <> hoare_sound prfax
+R1613:1623 PLF.HoareAsLogic <> hoare_sound thm
 R1640:1654 PLF.Hoare <> Assertion def
 binder 1636:1636 <> P:10
 R1662:1668 PLF.Imp <> com ind
@@ -76,7 +76,7 @@ R1719:1723 PLF.HoareAsLogic <> valid def
 R1725:1725 PLF.HoareAsLogicTest <> P:10 var
 R1727:1727 PLF.HoareAsLogicTest <> c:11 var
 R1729:1729 PLF.HoareAsLogicTest <> Q:12 var
-R1613:1623 PLF.HoareAsLogic <> hoare_sound prfax
+R1613:1623 PLF.HoareAsLogic <> hoare_sound thm
 R1640:1654 PLF.Hoare <> Assertion def
 binder 1636:1636 <> P:13
 R1662:1668 PLF.Imp <> com ind
@@ -91,10 +91,10 @@ R1719:1723 PLF.HoareAsLogic <> valid def
 R1725:1725 PLF.HoareAsLogicTest <> P:13 var
 R1727:1727 PLF.HoareAsLogicTest <> c:14 var
 R1729:1729 PLF.HoareAsLogicTest <> Q:15 var
-R1781:1791 PLF.HoareAsLogic <> hoare_sound prfax
+R1781:1791 PLF.HoareAsLogic <> hoare_sound thm
 def 1794:1802 <> Unnamed_thm
 R1799:1802 Coq.Init.Logic <> True ind
-R1947:1952 PLF.HoareAsLogic <> wp_seq prfax
+R1947:1952 PLF.HoareAsLogic <> wp_seq thm
 R1971:1985 PLF.Hoare <> Assertion def
 binder 1965:1965 <> P:16
 binder 1967:1967 <> Q:17
@@ -119,7 +119,7 @@ R2086:2093 PLF.Imp <> CSeq constr
 R2095:2096 PLF.HoareAsLogicTest <> c1:18 var
 R2098:2099 PLF.HoareAsLogicTest <> c2:19 var
 R2102:2102 PLF.HoareAsLogicTest <> Q:17 var
-R1947:1952 PLF.HoareAsLogic <> wp_seq prfax
+R1947:1952 PLF.HoareAsLogic <> wp_seq thm
 R1971:1985 PLF.Hoare <> Assertion def
 binder 1965:1965 <> P:20
 binder 1967:1967 <> Q:21
@@ -144,10 +144,10 @@ R2086:2093 PLF.Imp <> CSeq constr
 R2095:2096 PLF.HoareAsLogicTest <> c1:22 var
 R2098:2099 PLF.HoareAsLogicTest <> c2:23 var
 R2102:2102 PLF.HoareAsLogicTest <> Q:21 var
-R2154:2159 PLF.HoareAsLogic <> wp_seq prfax
+R2154:2159 PLF.HoareAsLogic <> wp_seq thm
 def 2162:2170 <> Unnamed_thm
 R2167:2170 Coq.Init.Logic <> True ind
-R2327:2338 PLF.HoareAsLogic <> wp_invariant prfax
+R2327:2338 PLF.HoareAsLogic <> wp_invariant thm
 R2355:2362 PLF.Imp <> bexp ind
 binder 2351:2351 <> b:24
 R2370:2376 PLF.Imp <> com ind
@@ -175,7 +175,7 @@ R2551:2560 PLF.Imp <> CWhile constr
 R2562:2562 PLF.HoareAsLogicTest <> b:24 var
 R2564:2564 PLF.HoareAsLogicTest <> c:25 var
 R2567:2567 PLF.HoareAsLogicTest <> Q:26 var
-R2327:2338 PLF.HoareAsLogic <> wp_invariant prfax
+R2327:2338 PLF.HoareAsLogic <> wp_invariant thm
 R2355:2362 PLF.Imp <> bexp ind
 binder 2351:2351 <> b:28
 R2370:2376 PLF.Imp <> com ind
@@ -203,10 +203,10 @@ R2551:2560 PLF.Imp <> CWhile constr
 R2562:2562 PLF.HoareAsLogicTest <> b:28 var
 R2564:2564 PLF.HoareAsLogicTest <> c:29 var
 R2567:2567 PLF.HoareAsLogicTest <> Q:30 var
-R2620:2631 PLF.HoareAsLogic <> wp_invariant prfax
+R2620:2631 PLF.HoareAsLogic <> wp_invariant thm
 def 2634:2642 <> Unnamed_thm
 R2639:2642 Coq.Init.Logic <> True ind
-R2803:2816 PLF.HoareAsLogic <> hoare_complete prfax
+R2803:2816 PLF.HoareAsLogic <> hoare_complete thm
 R2833:2847 PLF.Hoare <> Assertion def
 binder 2829:2829 <> P:32
 R2855:2861 PLF.Imp <> com ind
@@ -221,7 +221,7 @@ R2908:2916 PLF.HoareAsLogic <> derivable ind
 R2918:2918 PLF.HoareAsLogicTest <> P:32 var
 R2920:2920 PLF.HoareAsLogicTest <> c:33 var
 R2922:2922 PLF.HoareAsLogicTest <> Q:34 var
-R2803:2816 PLF.HoareAsLogic <> hoare_complete prfax
+R2803:2816 PLF.HoareAsLogic <> hoare_complete thm
 R2833:2847 PLF.Hoare <> Assertion def
 binder 2829:2829 <> P:35
 R2855:2861 PLF.Imp <> com ind
@@ -236,12 +236,12 @@ R2908:2916 PLF.HoareAsLogic <> derivable ind
 R2918:2918 PLF.HoareAsLogicTest <> P:35 var
 R2920:2920 PLF.HoareAsLogicTest <> c:36 var
 R2922:2922 PLF.HoareAsLogicTest <> Q:37 var
-R2974:2987 PLF.HoareAsLogic <> hoare_complete prfax
+R2974:2987 PLF.HoareAsLogic <> hoare_complete thm
 def 2990:2998 <> Unnamed_thm
 R2995:2998 Coq.Init.Logic <> True ind
-R3958:3975 PLF.HoareAsLogic <> provable_true_post prfax
-R4045:4062 PLF.HoareAsLogic <> provable_false_pre prfax
-R4125:4135 PLF.HoareAsLogic <> hoare_sound prfax
-R4193:4198 PLF.HoareAsLogic <> wp_seq prfax
-R4262:4273 PLF.HoareAsLogic <> wp_invariant prfax
-R4339:4352 PLF.HoareAsLogic <> hoare_complete prfax
+R3958:3975 PLF.HoareAsLogic <> provable_true_post thm
+R4045:4062 PLF.HoareAsLogic <> provable_false_pre thm
+R4125:4135 PLF.HoareAsLogic <> hoare_sound thm
+R4193:4198 PLF.HoareAsLogic <> wp_seq thm
+R4262:4273 PLF.HoareAsLogic <> wp_invariant thm
+R4339:4352 PLF.HoareAsLogic <> hoare_complete thm

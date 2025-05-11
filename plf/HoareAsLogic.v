@@ -239,7 +239,26 @@ Qed.
 Theorem provable_true_post : forall c P,
     derivable P c True.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros.
+  generalize dependent P.
+  induction c; intros.
+  - eapply H_Consequence_pre.
+    + eapply H_Skip.
+    + auto.
+  - eapply H_Consequence_pre.
+    + eapply H_Asgn.
+    + auto.
+  - eapply H_Seq.
+    2:{ apply IHc1. }
+    1:{ apply IHc2. }
+  - eapply H_If; auto.
+  - apply H_Consequence_pre with {{True}}.
+    + eapply H_Consequence_post.
+      * eapply H_While.
+        auto.
+      * auto.
+    + auto.
+Qed.
 
 (** [] *)
 
@@ -251,8 +270,27 @@ Proof.
 Theorem provable_false_pre : forall c Q,
     derivable False c Q.
 Proof.
-  (* FILL IN HERE *) Admitted.
-
+  intros.
+  generalize dependent Q.
+  induction c; intros.
+  - eapply H_Consequence_post.
+    + apply H_Skip.
+    + intros. inversion H.
+  - apply H_Consequence_pre with {{False [x |-> a]}}.
+    + apply H_Consequence_post with {{False}}.
+      * apply H_Asgn.
+      * intros. inversion H.
+    + intros. inversion H.
+  - eapply H_Seq.
+    2:{ apply IHc1. }
+    1:{ apply IHc2. }
+  - eapply H_If; apply H_Consequence_pre with {{False}}; auto; 
+    intros; inversion H; inversion H0.
+  - eapply H_Consequence_post.
+    + apply H_While. apply H_Consequence_pre with {{False}}. apply IHc. 
+      intros. inversion H. inversion H0.
+    + intros. inversion H. inversion H0.
+Qed.
 (** [] *)
 
 
@@ -288,8 +326,20 @@ Proof.
 
 Theorem hoare_sound : forall P c Q,
   derivable P c Q -> valid P c Q.
-Proof.
-  (* FILL IN HERE *) Admitted.
+Proof.  
+  intros.
+  induction X; unfold valid.
+  - apply hoare_skip.
+  - apply hoare_asgn.
+  - eapply hoare_seq.
+    + apply IHX1.
+    + apply IHX2.
+  - apply hoare_if; assumption.
+  - apply hoare_while. assumption.
+  - eapply hoare_consequence;
+    [ apply IHX | | ].
+    all : unfold "->>"; assumption.
+Qed.
 (** [] *)
 
 (** The proof of completeness is more challenging.  To carry out the
@@ -334,8 +384,11 @@ Proof. eauto. Qed.
 Lemma wp_seq : forall P Q c1 c2,
     derivable P c1 (wp c2 Q) -> derivable (wp c2 Q) c2 Q -> derivable P <{c1; c2}> Q.
 Proof.
-  (* FILL IN HERE *) Admitted.
-
+  intros.
+  eapply H_Seq.
+  - apply X0.
+  - auto.
+Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard (wp_invariant) *)
@@ -347,8 +400,12 @@ Proof.
 Lemma wp_invariant : forall b c Q,
     valid ({{$(wp <{while b do c end}> Q) /\ b}}) c (wp <{while b do c end}> Q).
 Proof.
-  (* FILL IN HERE *) Admitted.
-
+  intros b c Q st st' Hc H.
+  unfold wp in *. intros st'' Hwhile.
+  destruct H as [H Hb].
+  apply H. apply E_WhileTrue with st'.
+  all:auto.
+Qed.
 (** [] *)
 
 (** **** Exercise: 4 stars, standard (hoare_complete) *)
@@ -369,8 +426,52 @@ Theorem hoare_complete: forall P c Q,
 Proof.
   unfold valid. intros P c. generalize dependent P.
   induction c; intros P Q HT.
-  (* FILL IN HERE *) Admitted.
-
+  1:{
+    apply H_Consequence with (P':=P) (Q':=P); auto.
+    - apply H_Skip.
+    - intro st. eapply HT. auto. 
+  }
+  2:{
+    eapply H_Seq.
+    remember (wp c2 Q) as R.
+    - apply IHc2 with (P:=(wp c2 Q)) (Q:=Q).  
+      apply wp_is_precondition.
+    - apply IHc1.
+      intros st st' Hst HP.
+      unfold wp. intros st'' Hst'.
+      eapply HT. apply E_Seq with st'. apply Hst. 
+      assumption. apply HP.
+  }
+  3:{
+    eapply H_Consequence. 
+    eapply H_While with (b:=b) (c:=c) 
+      (P:=wp <{while b do c end}> Q).
+    - apply IHc.
+      apply wp_invariant.
+    - intros. eauto.
+    - intros. apply H. eapply E_WhileFalse.
+      inversion H. simpl in *. apply Bool.not_true_is_false. apply H1.
+  }
+  1:{
+    eapply H_Consequence with (Q':=Q).
+    - apply H_Asgn.
+    - intros. apply HT with st; auto.
+    - auto.
+  }
+  1:{
+    apply H_If.
+    - apply IHc1. intros. 
+      destruct H0 as [HP Hb].
+      eapply HT with st.
+      + apply E_IfTrue; auto.
+      + auto.
+    - apply IHc2. intros. 
+      destruct H0 as [HP Hb].
+      eapply HT with st.
+      + apply E_IfFalse; auto. apply Bool.not_true_is_false. auto.
+      + auto.
+  }
+Qed.
 (** [] *)
 
 
