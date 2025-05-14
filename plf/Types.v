@@ -200,7 +200,14 @@ Hint Unfold stuck : core.
 Example some_term_is_stuck :
   exists t, stuck t.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  exists (scc tru).
+  split.
+  - unfold step_normal_form, normal_form. intros contra.
+    destruct contra.
+    inversion H. subst. inversion H1.
+  - intros contra.
+    inversion contra; inversion H; inversion H1.
+Qed.
 (** [] *)
 
 (** However, although values and normal forms are _not_ the same in this
@@ -210,10 +217,27 @@ Proof.
     things so that some value could still take a step. *)
 
 (** **** Exercise: 3 stars, standard (value_is_nf) *)
+Lemma nvalue_is_nf : forall t,
+  nvalue t -> step_normal_form t.
+Proof.
+  intros t H.
+  induction H; unfold normal_form; intros [t'].
+  - inversion H.
+  - inversion H0; subst. unfold normal_form in *.
+    apply IHnvalue. eauto.
+Qed.
+
 Lemma value_is_nf : forall t,
   value t -> step_normal_form t.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros t H.
+  destruct H as [Hv | Hv]. 
+  - unfold normal_form.
+    intros contra.
+    destruct contra as [t'].
+    inversion Hv; subst; inversion H.
+  - apply nvalue_is_nf. auto.
+Qed.
 
 (** (Hint: You will reach a point in this proof where you need to
     use an induction to reason about a term that is known to be a
@@ -345,8 +369,9 @@ Example succ_hastype_nat__hastype_nat : forall t,
   <{ |--  succ t \in Nat }> ->
   <{ |-- t \in Nat }>.
 Proof.
-  (* FILL IN HERE *) Admitted.
-(** [] *)
+  intros t HT. inversion HT. auto.
+Qed.
+  (** [] *)
 
 (* ----------------------------------------------------------------- *)
 (** *** Canonical forms *)
@@ -399,15 +424,43 @@ Proof.
   - (* T_If *)
     right. destruct IHHT1.
     + (* t1 is a value *)
-    apply (bool_canonical t1 HT1) in H.
-    destruct H.
+      apply (bool_canonical t1 HT1) in H.
+      destruct H.
       * exists t2. auto.
       * exists t3. auto.
     + (* t1 can take a step *)
       destruct H as [t1' H1].
       exists <{ if t1' then t2 else t3 }>. auto.
-  (* FILL IN HERE *) Admitted.
-(** [] *)
+  - (* T_Succ *)
+    destruct IHHT.
+    + (* t1 is a value *)
+      apply (nat_canonical t1 HT) in H.
+      left. right. auto.
+    + (* t1 can take a step *)
+      destruct H as [t1' H1].
+      right. exists <{ succ t1' }>. auto.
+  - (* T_Pred *)
+    destruct IHHT.
+    + (* t1 is a value *)
+      apply (nat_canonical t1 HT) in H.
+      right. inversion H; subst.
+      * exists <{ 0 }>. auto.
+      * exists <{ t }>. auto.
+    + (* t1 can take a step *)
+      destruct H as [t1' H1].
+      right. exists <{ pred t1' }>. auto.
+  - (* T_Iszero *)
+    destruct IHHT.
+    + (* t1 is a value *)
+      apply (nat_canonical t1 HT) in H.
+      right. inversion H; subst.
+      * exists <{ true }>. auto.
+      * exists <{ false }>. auto.
+    + (* t1 can take a step *)
+      destruct H as [t1' H1].
+      right. exists <{ iszero t1' }>. auto.
+Qed.
+  (** [] *)
 
 (** **** Exercise: 3 stars, advanced (finish_progress_informal)
 
@@ -452,6 +505,14 @@ Definition manual_grade_for_finish_progress_informal : option (nat*string) := No
     term takes a step, the result is a well-typed term (of the same type). *)
 
 (** **** Exercise: 2 stars, standard (finish_preservation) *)
+Lemma nvalue_has_type_nat : forall t,
+  nvalue t ->
+  <{ |-- t \in Nat }>.
+Proof.
+  intros t H.
+  induction H; auto.
+Qed.
+
 Theorem preservation : forall t t' T,
   <{ |-- t \in T }> ->
   t --> t' ->
@@ -475,7 +536,15 @@ Proof.
       + (* ST_IfFalse *) assumption.
       + (* ST_If *) apply T_If; try assumption.
         apply IHHT1; assumption.
-    (* FILL IN HERE *) Admitted.
+    - (* T_Succ *) inversion HE; subst; clear HE.
+      apply T_Succ. apply IHHT. assumption.
+    - (* T_Pred *) inversion HE; subst.
+      + (* ST_Pred0 *) assumption.
+      + (* ST_PredSucc *) apply nvalue_has_type_nat. assumption.
+      + (* ST_Pred *) apply T_Pred. apply IHHT. assumption.
+    - (* T_Iszero *) inversion HE; subst; auto.
+Qed.
+    
 (** [] *)
 
 (** **** Exercise: 3 stars, advanced (finish_preservation_informal)
@@ -526,7 +595,13 @@ Theorem preservation' : forall t t' T,
   t --> t' ->
   <{ |-- t' \in T }>.
 Proof with eauto.
-  (* FILL IN HERE *) Admitted.
+  intros t t' T HT HE.
+  generalize dependent T.
+  induction HE; intros; 
+    inversion HT; subst; auto.
+  - apply nvalue_has_type_nat. assumption.
+Qed.
+
 (** [] *)
 
 (** The preservation theorem is often called _subject reduction_,
