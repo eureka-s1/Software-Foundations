@@ -507,10 +507,32 @@ where "'[' x ':=' s ']' t" := (subst x s t) (in custom stlc_tm).
     constructors and prove that the relation you've defined coincides
     with the function given above. *)
 
+(* substi s x t t' <=>  <{ [x:=s]t }> = t'  *)
 Inductive substi (s : tm) (x : string) : tm -> tm -> Prop :=
   | s_var1 :
       substi s x (tm_var x) s
-  (* FILL IN HERE *)
+  | s_var2 : forall y,
+      x <> y ->
+      substi s x (tm_var y) (tm_var y)
+  | s_abs1 : forall T t1,
+      substi s x (tm_abs x T t1) (tm_abs x T t1)
+  | s_abs2 : forall y T t1 t1',
+      x <> y ->
+      substi s x t1 t1' ->
+      substi s x (tm_abs y T t1) (tm_abs y T t1')
+  | s_app : forall t1 t1' t2 t2',
+      substi s x t1 t1' ->
+      substi s x t2 t2' ->
+      substi s x (tm_app t1 t2) (tm_app t1' t2')
+  | s_true :
+      substi s x <{true}> <{true}>
+  | s_false :
+      substi s x <{false}> <{false}>
+  | s_if : forall t1 t1' t2 t2' t3 t3',
+      substi s x t1 t1' ->
+      substi s x t2 t2' ->
+      substi s x t3 t3' ->
+      substi s x (tm_if t1 t2 t3) (tm_if t1' t2' t3')
 .
 
 Hint Constructors substi : core.
@@ -518,7 +540,50 @@ Hint Constructors substi : core.
 Theorem substi_correct : forall s x t t',
   <{ [x:=s]t }> = t' <-> substi s x t t'.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  split.
+  - intros.
+    generalize dependent t'.
+    induction t; intros.
+    + destruct (eqb x0 s0) eqn:E.
+      * apply eqb_eq in E. subst. simpl. 
+        assert (goal : (s0 =? s0)%string = true).
+        { apply eqb_eq. reflexivity. }
+        rewrite goal. apply s_var1.
+      * apply eqb_neq in E. subst. simpl.
+        assert (goal : (x0 =? s0)%string = false).
+        { apply eqb_neq. auto. }
+        rewrite goal. apply s_var2. auto.
+    + simpl in H. inversion H.
+      apply s_app; auto.
+    + simpl in H. destruct (eqb x0 s0) eqn:E.
+      * apply eqb_eq in E. subst.
+        apply s_abs1.
+      * apply eqb_neq in E. subst.
+        apply s_abs2; auto.
+    + simpl in H. inversion H. auto.
+    + simpl in H. inversion H. auto.
+    + simpl in H. inversion H. auto.
+  - intros.
+    induction H; simpl; auto.
+    + simpl. 
+      assert (goal : (x0 =? x0)%string = true).
+      { apply eqb_eq. reflexivity. }
+      rewrite goal. auto.
+    + simpl.
+      assert (goal : (x0 =? y0)%string = false).
+      { apply eqb_neq. auto. }
+      rewrite goal. auto.
+    + assert (goal : (x0 =? x0)%string = true).
+      { apply eqb_eq. reflexivity. }
+      rewrite goal. auto.
+    + assert (goal : (x0 =? y0)%string = false).
+      { apply eqb_neq. auto. }
+      rewrite goal. rewrite IHsubsti. auto.
+    + rewrite IHsubsti1. rewrite IHsubsti2. auto.
+    + rewrite IHsubsti1. rewrite IHsubsti2. rewrite IHsubsti3. auto.
+Qed.
+    
+    
 (** [] *)
 
 (* ================================================================= *)
@@ -712,14 +777,22 @@ Lemma step_example5 :
        <{idBBBB idBB idB}>
   -->* idB.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  normalize.
+Qed.
 
 Lemma step_example5_with_normalize :
        <{idBBBB idBB idB}>
   -->* idB.
 Proof.
-  (* FILL IN HERE *) Admitted.
-(** [] *)
+  eapply multi_step.
+  - apply ST_App1.
+    + apply ST_AppAbs. auto.
+  - eapply multi_step.
+    + apply ST_AppAbs. auto.
+    + eapply multi_refl.
+Qed.
+
+ (** [] *)
 
 (* ################################################################# *)
 (** * Typing *)
@@ -874,7 +947,14 @@ Example typing_example_2_full :
           (y (y x)) \in
     Bool -> (Bool -> Bool) -> Bool }>.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  apply T_Abs.
+  apply T_Abs.
+  apply T_App with (t2 := <{(y x)}>) (T2 := <{{ Bool }}>).
+  - apply T_Var. reflexivity.
+  - apply T_App with (T2 := <{{ Bool }}>).
+    + apply T_Var. reflexivity.
+    + apply T_Var. reflexivity.
+Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard (typing_example_3)
@@ -895,7 +975,13 @@ Example typing_example_3 :
                (y (x z)) \in
       T }>.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  eexists.
+  repeat apply T_Abs.
+  eapply T_App.
+  - apply T_Var. reflexivity.
+  - eapply T_App; apply T_Var; reflexivity.
+Qed.
+  
 (** [] *)
 
 (** We can also show that some terms are _not_ typable.  For example,
@@ -932,12 +1018,32 @@ Qed.
           empty |-- \x:S, x x \in T).
 *)
 
+Lemma ty_arrow_ineq : forall T1 T2,
+  ~( <{{ T2 -> T1 }}> = T2 ).
+Proof.
+  intros T1 T2. 
+  generalize dependent T1.
+  induction T2.
+  - intros T1 H. inversion H.
+  - intros T1 H. inversion H. subst.
+    apply (IHT2_1 T2_2).
+    assumption.
+Qed.
+
 Example typing_nonexample_3 :
   ~ (exists S T,
       <{ empty |--
           \x:S, x x \in T }>).
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros Hc. destruct Hc as [S [T Hc]].
+  inversion Hc; subst; clear Hc.
+  inversion H4; subst; clear H4.
+  inversion H2; subst; clear H2.
+  inversion H5; subst; clear H5.
+  rewrite H1 in H2. inversion H2.
+  apply ty_arrow_ineq in H0.
+  destruct H0.
+Qed.
 (** [] *)
 
 End STLC.

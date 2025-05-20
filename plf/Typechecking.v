@@ -340,8 +340,31 @@ Fixpoint type_check (Gamma : context) (t : tm) : option ty :=
 
   (* sums *)
   (* FILL IN HERE *)
+  | <{ inr T2 t1 }>
+    T1 <- type_check Gamma t2 ;;
+    return <{{ T1 + T2 }}>
+  | <{ inl T1 t2 }>
+    T2 <- type_check Gamma t2 ;;
+    return <{{ T1 + T2 }}>
+  | <{ case t0 of | inl x1 => t1 | inr x2 => t2 }>
+    T0 <- type_check Gamma t0 ;;
+    match T0 with
+    | <{{ Tl + Tr }}> =>
+      T1 <- type_check (x1 |-> Tl ; Gamma) t1 ;;
+      T2 <- type_check (x2 |-> Tr ; Gamma) t2 ;;
+      if eqb_ty T1 T2 then return T1 else fail
+    | _ => fail
+    end
   (* lists (the [tm_lcase] is given for free) *)
   (* FILL IN HERE *)
+  | <{ nil T }> => T 
+  | <{ cons t1 t2 }>
+    T1 <- type_check Gamma t1 ;;
+    T2 <- type_check Gamma t2 ;;
+    match T2 with
+    | <{{ List T1 }}> => return <{{ List T1 }}>
+    | _ => fail
+    end
   | <{ case t0 of | nil => t1 | x21 :: x22 => t2 }> =>
       T0 <- type_check Gamma t0 ;;
       match T0 with
