@@ -145,9 +145,39 @@ Theorem progress' : forall t T,
      value t \/ exists t', t --> t'.
 Proof.
   intros t.
-  induction t; intros T Ht; auto.
-  (* FILL IN HERE *) Admitted.
-(** [] *)
+  induction t; intros T Ht; 
+    inversion Ht; clear Ht; subst; auto.
+  - (* tm_var *)
+    inversion H1.
+  - (* tm_app *)
+    right. destruct (IHt1 (Ty_Arrow T2 T) H2).
+    + (* t1 is a value *)
+      apply canonical_forms_fun in H2; [| assumption].
+      destruct H2 as [x [t0 H1]]. subst.
+      destruct (IHt2 T2 H4).
+      * (* t2 is also a value *)
+        exists (<{ [x:=t2]t0 }>). apply ST_AppAbs. auto.
+      * (* t2 steps *)
+        destruct H0 as [t2' Hstp].
+        exists (<{ (\ x : T2, t0) t2' }>).
+        apply ST_App2; auto.
+    + (* t1 steps *)
+      destruct H as [t1' Hstp].
+      exists (<{ t1' t2 }>).
+      apply ST_App1; auto.
+  - (* tm_if *)
+    right. destruct (IHt1 Ty_Bool H3).
+    + (* t1 is a value *)
+      apply canonical_forms_bool in H3; [| assumption].
+      destruct H3; rewrite H0. 
+      * exists t2. apply ST_IfTrue.
+      * exists t3. apply ST_IfFalse.
+    + (* t1 steps *)
+      destruct H as [t1' Hstp].
+      exists <{ if t1' then t2 else t3 }>.
+      apply ST_If. auto.
+Qed. 
+  (** [] *)
 
 (* ################################################################# *)
 (** * Preservation *)
@@ -188,6 +218,8 @@ Proof.
 (** First, we show that typing is preserved under "extensions" to the
     context [Gamma].  (Recall the definition of "includedin" from
     Maps.v.) *)
+
+Print includedin.
 
 Lemma weakening : forall Gamma Gamma' t T,
      includedin Gamma Gamma' ->
@@ -334,7 +366,23 @@ Proof.
   remember (x |-> U; Gamma) as Gamma'.
   generalize dependent Gamma.
   induction Ht; intros Gamma' G; simpl; eauto.
- (* FILL IN HERE *) Admitted.
+  - (* var *)
+    rename x0 into y. destruct (eqb_spec x y); subst.
+    + (* x=y *)
+      rewrite update_eq in H.
+      injection H as H; subst.
+      apply weakening_empty. assumption.
+    + (* x<>y *)
+      apply T_Var. rewrite update_neq in H; auto.
+  - (* abs *)
+    rename x0 into y.
+    destruct (eqb_spec x y); subst; apply T_Abs.
+    + (* x=y *)
+      rewrite update_shadow in Ht. assumption.
+    + (* x<>y *)
+      apply IHHt.
+      rewrite update_permute; auto.
+Qed.
 (** [] *)
 
 (* ================================================================= *)
@@ -400,11 +448,8 @@ Proof with eauto.
        try solve [inversion HE; subst; auto].
   - (* T_App *)
     inversion HE; subst...
-    (* Most of the cases are immediate by induction,
-       and [eauto] takes care of them *)
-    + (* ST_AppAbs *)
-      apply substitution_preserves_typing with T2...
-      inversion HT1...
+    inversion HT1. subst...
+    eapply substitution_preserves_typing_from_typing_ind; eauto.
 Qed.
 
 (** **** Exercise: 2 stars, standard, especially useful (subject_expansion_stlc)
@@ -450,7 +495,11 @@ Proof.
   intros t t' T Hhas_type Hmulti. unfold stuck.
   intros [Hnf Hnot_val]. unfold normal_form in Hnf.
   induction Hmulti.
-  (* FILL IN HERE *) Admitted.
+  - apply progress in Hhas_type.
+    destruct Hhas_type; eauto.
+  - eapply IHHmulti; eauto.
+    eapply preservation; eauto.
+Qed.
 (** [] *)
 
 (* ################################################################# *)
@@ -466,7 +515,16 @@ Theorem unique_types : forall Gamma e T T',
   <{ Gamma |-- e \in T' }> ->
   T = T'.
 Proof.
-  (* FILL IN HERE *) Admitted.
+  intros Gamma e T T' Hhas_type.
+  generalize dependent T'.
+  induction Hhas_type; intros T1' Hhas_type'; 
+    inversion Hhas_type'; subst; eauto.
+  - rewrite H in H2. injection H2 as H2. auto.
+  - apply (IHHhas_type T0) in H4. rewrite H4. reflexivity.
+  - apply (IHHhas_type2 T3) in H4. subst.
+    apply (IHHhas_type1 (Ty_Arrow T3 T1')) in H2.
+    injection H2 as H2. auto.
+Qed.
 (** [] *)
 
 (* ################################################################# *)
