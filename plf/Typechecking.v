@@ -288,6 +288,8 @@ Proof.
  Qed.
 
 (** **** Exercise: 4 stars, standard (type_check_defn) *)
+Print tm.
+
 Fixpoint type_check (Gamma : context) (t : tm) : option ty :=
   match t with
   | tm_var x =>
@@ -339,14 +341,13 @@ Fixpoint type_check (Gamma : context) (t : tm) : option ty :=
   (* Complete the following cases. *)
 
   (* sums *)
-  (* FILL IN HERE *)
-  | <{ inr T2 t1 }>
-    T1 <- type_check Gamma t2 ;;
-    return <{{ T1 + T2 }}>
-  | <{ inl T1 t2 }>
-    T2 <- type_check Gamma t2 ;;
-    return <{{ T1 + T2 }}>
-  | <{ case t0 of | inl x1 => t1 | inr x2 => t2 }>
+  | <{ inr Tl t }> =>
+    Tr <- type_check Gamma t ;;
+    return <{{ Tl + Tr }}> 
+  | <{ inl Tr t }> =>
+    Tl <- type_check Gamma t ;;
+    return <{{ Tl + Tr }}>
+  | <{ case t0 of | inl x1 => t1 | inr x2 => t2 }> =>
     T0 <- type_check Gamma t0 ;;
     match T0 with
     | <{{ Tl + Tr }}> =>
@@ -356,33 +357,55 @@ Fixpoint type_check (Gamma : context) (t : tm) : option ty :=
     | _ => fail
     end
   (* lists (the [tm_lcase] is given for free) *)
-  (* FILL IN HERE *)
-  | <{ nil T }> => T 
-  | <{ cons t1 t2 }>
+  | <{ nil T }> => return <{{ List T }}>
+  | <{ t1 :: t2 }> =>
     T1 <- type_check Gamma t1 ;;
-    T2 <- type_check Gamma t2 ;;
-    match T2 with
-    | <{{ List T1 }}> => return <{{ List T1 }}>
+    LT2 <- type_check Gamma t2 ;;
+    match LT2 with
+    | <{{ List T }}> =>  
+      if eqb_ty T1 T then return <{{ List T }}> else fail
     | _ => fail
     end
   | <{ case t0 of | nil => t1 | x21 :: x22 => t2 }> =>
-      T0 <- type_check Gamma t0 ;;
-      match T0 with
-      | <{{List T}}> =>
-          T1 <- type_check Gamma t1 ;;
-          T2 <- type_check (x21 |-> T ; x22 |-> <{{List T}}> ; Gamma) t2 ;;
-          if eqb_ty T1 T2 then return T1 else fail
-      | _ => fail
-      end
+    T0 <- type_check Gamma t0 ;;
+    match T0 with
+    | <{{List T}}> =>
+        T1 <- type_check Gamma t1 ;;
+        T2 <- type_check (x21 |-> T ; x22 |-> <{{List T}}> ; Gamma) t2 ;;
+        if eqb_ty T1 T2 then return T1 else fail
+    | _ => fail
+    end
   (* unit *)
-  (* FILL IN HERE *)
+  | <{ unit }> => return <{{Unit}}>
   (* pairs *)
-  (* FILL IN HERE *)
+  | <{ (t1 , t2) }> =>
+    T1 <- type_check Gamma t1 ;;
+    T2 <- type_check Gamma t2 ;;
+    return <{{ T1 * T2 }}>
+  | <{ t.fst }> =>
+    T <- type_check Gamma t ;;
+    match T with
+    | <{{ T1 * T2 }}> => return T1
+    | _ => fail
+    end
+  | <{ t.snd }> =>
+    T <- type_check Gamma t ;;
+    match T with
+    | <{{ T1 * T2 }}> => return T2
+    | _ => fail
+    end
   (* let *)
-  (* FILL IN HERE *)
+  | <{ let x1 = t1 in t2 }> =>
+      T1 <- type_check Gamma t1 ;;
+      T2 <- type_check (x1 |-> T1 ; Gamma) t2 ;;
+      return T2
   (* fix *)
-  (* FILL IN HERE *)
-  | _ => None  (* ... and delete this line when you complete the exercise. *)
+  | <{ fix t }> =>
+    T <- type_check Gamma t ;;
+    match T with
+    | <{{ T1 -> T2 }}> => if eqb_ty T1 T2 then return T1 else fail
+    | _ => fail
+    end
   end.
 (* Do not modify the following line: *)
 Definition manual_grade_for_type_check_defn : option (nat*string) := None.
@@ -448,9 +471,24 @@ Proof with eauto.
     case_equality T2 T3.
   (* Complete the following cases. *)
   (* sums *)
-  (* FILL IN HERE *)
+  - (* inl *)
+    invert_typecheck Gamma t0 Tl.
+  - (* inr *)
+    invert_typecheck Gamma t0 Tr.
+  - (* case *)
+    invert_typecheck Gamma t1 Tsum.
+    analyze Tsum Tl Tr.
+    invert_typecheck (s |-> Tl ; Gamma) t2 T1.
+    invert_typecheck (s0 |-> Tr ; Gamma) t3 T2.
+    case_equality T1 T2.
   (* lists (the [tm_lcase] is given for free) *)
-  (* FILL IN HERE *)
+  - (* nil *)
+    eauto.
+  - (* cons *)
+    invert_typecheck Gamma t1 T1.
+    invert_typecheck Gamma t2 T2.
+    analyze T2 T0 LT.
+    case_equality T1 T0.
   - (* tlcase *)
     rename s into x31, s0 into x32.
     fully_invert_typecheck Gamma t1 T1 T11 T12.
@@ -458,15 +496,22 @@ Proof with eauto.
     remember (x31 |-> T11 ; x32 |-> <{{List T11}}> ; Gamma) as Gamma'2.
     invert_typecheck Gamma'2 t3 T3.
     case_equality T2 T3.
-  (* unit *)
-  (* FILL IN HERE *)
-  (* pairs *)
-  (* FILL IN HERE *)
-  (* let *)
-  (* FILL IN HERE *)
-  (* fix *)
-  (* FILL IN HERE *)
-  (* FILL IN HERE *) Admitted.
+  - (* unit *)
+    eauto.
+  - (* pair *)
+    invert_typecheck Gamma t1 T1.
+    invert_typecheck Gamma t2 T2.
+  - (* fst *)
+    fully_invert_typecheck Gamma t T T1 T2.
+  - (* snd *)
+    fully_invert_typecheck Gamma t T T1 T2.
+  - (* let *)
+    invert_typecheck Gamma t1 T1.
+    invert_typecheck (s |-> T1 ; Gamma) t2 T2.
+  - (* fix *)
+    fully_invert_typecheck Gamma t T T1 T2.
+    case_equality T1 T2.
+Qed.
 (** [] *)
 
 (** **** Exercise: 2 stars, standard (ext_type_checking_complete) *)
@@ -487,7 +532,7 @@ Proof.
     eauto.
     - destruct (Gamma _); [assumption| solve_by_invert].
   (* The above proof script suffices for the reference solution. *)
-  (* FILL IN HERE *) Admitted.
+Qed.
 (** [] *)
 
 End TypecheckerExtensions.
