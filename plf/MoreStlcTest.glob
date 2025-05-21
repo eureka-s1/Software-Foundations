@@ -48,7 +48,7 @@ R1681:1695 PLF.MoreStlc STLCExtended ty ind
 R1754:1774 PLF.MoreStlc STLCExtended has_type ind
 def 1777:1785 <> Unnamed_thm
 R1782:1785 Coq.Init.Logic <> True ind
-R1960:1980 PLF.MoreStlc STLCExtended progress prfax
+R1960:1980 PLF.MoreStlc STLCExtended progress thm
 R1997:2011 PLF.MoreStlc STLCExtended tm ind
 binder 1993:1993 <> t:2
 R2019:2033 PLF.MoreStlc STLCExtended ty ind
@@ -68,7 +68,7 @@ R2200:2200 PLF.MoreStlcTest <> t:2 var
 R2202:2203 PLF.MoreStlcTest <> t':4 var
 R2107:2124 PLF.MoreStlc STLCExtended value ind
 R2126:2126 PLF.MoreStlcTest <> t:2 var
-R1960:1980 PLF.MoreStlc STLCExtended progress prfax
+R1960:1980 PLF.MoreStlc STLCExtended progress thm
 R1997:2011 PLF.MoreStlc STLCExtended tm ind
 binder 1993:1993 <> t:5
 R2019:2033 PLF.MoreStlc STLCExtended ty ind
@@ -88,10 +88,10 @@ R2200:2200 PLF.MoreStlcTest <> t:5 var
 R2202:2203 PLF.MoreStlcTest <> t':7 var
 R2107:2124 PLF.MoreStlc STLCExtended value ind
 R2126:2126 PLF.MoreStlcTest <> t:5 var
-R2257:2277 PLF.MoreStlc STLCExtended progress prfax
+R2257:2277 PLF.MoreStlc STLCExtended progress thm
 def 2280:2288 <> Unnamed_thm
 R2285:2288 Coq.Init.Logic <> True ind
-R2505:2546 PLF.MoreStlc STLCExtended substitution_preserves_typing prfax
+R2505:2546 PLF.MoreStlc STLCExtended substitution_preserves_typing thm
 R2567:2582 PLF.Maps <> partial_map def
 R2584:2598 PLF.MoreStlc STLCExtended ty ind
 binder 2559:2563 <> Gamma:8
@@ -124,7 +124,7 @@ R2886:2886 PLF.MoreStlcTest <> x:9 var
 R2888:2888 PLF.MoreStlcTest <> v:12 var
 R2890:2890 PLF.MoreStlcTest <> t:11 var
 R2893:2893 PLF.MoreStlcTest <> T:13 var
-R2505:2546 PLF.MoreStlc STLCExtended substitution_preserves_typing prfax
+R2505:2546 PLF.MoreStlc STLCExtended substitution_preserves_typing thm
 R2567:2582 PLF.Maps <> partial_map def
 R2584:2598 PLF.MoreStlc STLCExtended ty ind
 binder 2559:2563 <> Gamma:14
@@ -157,10 +157,10 @@ R2886:2886 PLF.MoreStlcTest <> x:15 var
 R2888:2888 PLF.MoreStlcTest <> v:18 var
 R2890:2890 PLF.MoreStlcTest <> t:17 var
 R2893:2893 PLF.MoreStlcTest <> T:19 var
-R2945:2986 PLF.MoreStlc STLCExtended substitution_preserves_typing prfax
+R2945:2986 PLF.MoreStlc STLCExtended substitution_preserves_typing thm
 def 2989:2997 <> Unnamed_thm
 R2994:2997 Coq.Init.Logic <> True ind
-R3180:3204 PLF.MoreStlc STLCExtended preservation prfax
+R3180:3204 PLF.MoreStlc STLCExtended preservation thm
 R3224:3238 PLF.MoreStlc STLCExtended tm ind
 binder 3217:3217 <> t:20
 binder 3219:3220 <> t':21
@@ -179,7 +179,7 @@ R3386:3395 PLF.Maps <> empty def
 R3397:3411 PLF.MoreStlc STLCExtended ty ind
 R3414:3415 PLF.MoreStlcTest <> t':21 var
 R3417:3417 PLF.MoreStlcTest <> T:22 var
-R3180:3204 PLF.MoreStlc STLCExtended preservation prfax
+R3180:3204 PLF.MoreStlc STLCExtended preservation thm
 R3224:3238 PLF.MoreStlc STLCExtended tm ind
 binder 3217:3217 <> t:23
 binder 3219:3220 <> t':24
@@ -198,12 +198,12 @@ R3386:3395 PLF.Maps <> empty def
 R3397:3411 PLF.MoreStlc STLCExtended ty ind
 R3414:3415 PLF.MoreStlcTest <> t':24 var
 R3417:3417 PLF.MoreStlcTest <> T:25 var
-R3469:3493 PLF.MoreStlc STLCExtended preservation prfax
+R3469:3493 PLF.MoreStlc STLCExtended preservation thm
 def 3496:3504 <> Unnamed_thm
 R3501:3504 Coq.Init.Logic <> True ind
 R4464:4481 PLF.MoreStlc STLCExtended subst def
 R4550:4566 PLF.MoreStlc STLCExtended step ind
 R4639:4659 PLF.MoreStlc STLCExtended has_type ind
-R4732:4752 PLF.MoreStlc STLCExtended progress prfax
-R4846:4887 PLF.MoreStlc STLCExtended substitution_preserves_typing prfax
-R4964:4988 PLF.MoreStlc STLCExtended preservation prfax
+R4732:4752 PLF.MoreStlc STLCExtended progress thm
+R4846:4887 PLF.MoreStlc STLCExtended substitution_preserves_typing thm
+R4964:4988 PLF.MoreStlc STLCExtended preservation thm
